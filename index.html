@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,430 +8,669 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════
+<!-- ═══════════════════════════
+     UA NOTICE TOAST
+═══════════════════════════ -->
+<div id="ua-toast" class="ua-toast" style="display:none">
+  <div class="ua-toast-icon">🇺🇦</div>
+  <div class="ua-toast-body">
+    <strong data-i18n="ua_notice_title">Увага</strong>
+    <p data-i18n="ua_notice_text">Фірма працює виключно польською та англійською мовами. Цей сайт українською лише для зручності.</p>
+  </div>
+  <button class="ua-toast-close" onclick="closeUaToast()">✕</button>
+</div>
+
+<!-- ═══════════════════════════
      NAV
-═══════════════════════════════════════ -->
+═══════════════════════════ -->
 <nav>
   <a href="#" class="logo">
     <img src="assets/images/logo.png" alt="AudioFreaks">
   </a>
   <ul>
-    <li><a href="#services">Usługi</a></li>
-    <li><a href="#pricing">Cennik</a></li>
-    <li><a href="#gallery">Galeria</a></li>
-    <li><a href="#locations">Współpraca</a></li>
-    <li><a href="#contact">Kontakt</a></li>
+    <li><a href="#services"   data-i18n="nav_services">Usługi</a></li>
+    <li><a href="#pricing"    data-i18n="nav_pricing">Cennik</a></li>
+    <li><a href="#gallery"    data-i18n="nav_gallery">Galeria</a></li>
+    <li><a href="#locations"  data-i18n="nav_locations">Współpraca</a></li>
+    <li><a href="#contact"    data-i18n="nav_contact">Kontakt</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Zarezerwuj</a>
+  <div class="nav-right">
+    <!-- Language switcher -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="pl">PL</button>
+      <button class="lang-btn"        data-lang="en">EN</button>
+      <button class="lang-btn"        data-lang="ua">UA</button>
+    </div>
+    <!-- Theme toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Przełącz motyw">
+      <span class="theme-icon">☀️</span>
+    </button>
+    <a href="#contact" class="nav-cta" data-i18n="nav_cta">Zarezerwuj</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- ═══════════════════════════════════════
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services"  onclick="closeMobileMenu()" data-i18n="nav_services">Usługi</a>
+  <a href="#pricing"   onclick="closeMobileMenu()" data-i18n="nav_pricing">Cennik</a>
+  <a href="#gallery"   onclick="closeMobileMenu()" data-i18n="nav_gallery">Galeria</a>
+  <a href="#locations" onclick="closeMobileMenu()" data-i18n="nav_locations">Współpraca</a>
+  <a href="#contact"   onclick="closeMobileMenu()" data-i18n="nav_contact">Kontakt</a>
+  <div class="mobile-lang">
+    <button class="lang-btn active" data-lang="pl">PL</button>
+    <button class="lang-btn"        data-lang="en">EN</button>
+    <button class="lang-btn"        data-lang="ua">UA</button>
+  </div>
+  <a href="#contact" class="btn-primary" onclick="closeMobileMenu()" data-i18n="nav_cta">Zarezerwuj</a>
+</div>
+
+<!-- ═══════════════════════════
      HERO
-═══════════════════════════════════════ -->
+═══════════════════════════ -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-rings"></div>
   <div class="hero-content">
-    <div class="hero-tag">Muzyka · Karaoke · Live Events</div>
-    <h1>Twoje wydarzenie,<br><em>nasza muzyka.</em></h1>
-    <p class="hero-sub">
-      AudioFreaks to profesjonalna obsługa muzyczna i eventowa — karaoke, wesela,
-      koncerty na żywo i prowadzenie imprez w Polsce i za granicą.
-    </p>
+    <div class="hero-tag" data-i18n="hero_tag">Muzyka · Karaoke · Live Events</div>
+    <h1 data-i18n="hero_h1">Twoje wydarzenie,<br><em data-i18n="hero_h1_em">nasza muzyka.</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">AudioFreaks to profesjonalna obsługa muzyczna i eventowa — karaoke, wesela, koncerty na żywo i prowadzenie imprez w Polsce i za granicą.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Napisz do nas</a>
-      <a href="#services" class="btn-ghost">Zobacz ofertę</a>
+      <a href="#contact" class="btn-primary" data-i18n="hero_cta1">Napisz do nas</a>
+      <a href="#services" class="btn-ghost"  data-i18n="hero_cta2">Zobacz ofertę</a>
     </div>
   </div>
   <div class="hero-numbers">
-    <div><div class="stat-num">2022</div><div class="stat-label">Rok założenia</div></div>
-    <div><div class="stat-num">PL/EN</div><div class="stat-label">Języki prowadzenia</div></div>
-    <div><div class="stat-num">100%</div><div class="stat-label">Zaangażowania</div></div>
-    <div><div class="stat-num">∞</div><div class="stat-label">Dobrej energii</div></div>
+    <div><div class="stat-num">2022</div><div class="stat-label" data-i18n="stat1">Rok założenia</div></div>
+    <div><div class="stat-num">PL/EN</div><div class="stat-label" data-i18n="stat2">Języki prowadzenia</div></div>
+    <div><div class="stat-num">100%</div><div class="stat-label" data-i18n="stat3">Zaangażowania</div></div>
+    <div><div class="stat-num">∞</div><div class="stat-label" data-i18n="stat4">Dobrej energii</div></div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
+<!-- ═══════════════════════════
      SERVICES
-═══════════════════════════════════════ -->
+═══════════════════════════ -->
 <section id="services">
   <div class="section-header">
-    <span class="section-label">Co oferujemy</span>
-    <h2>Nasze <em>usługi</em></h2>
+    <span class="section-label" data-i18n="services_label">Co oferujemy</span>
+    <h2 data-i18n="services_h2">Nasze <em>usługi</em></h2>
     <div class="divider"></div>
-    <p>Kompleksowa obsługa muzyczna i eventowa — od wesel po długoterminowe wieczory karaoke w lokalach.</p>
+    <p data-i18n="services_sub">Kompleksowa obsługa muzyczna i eventowa — od wesel po długoterminowe wieczory karaoke w lokalach.</p>
   </div>
   <div class="services-grid">
     <div class="service-card reveal">
-      <span class="service-icon">🎤</span>
-      <span class="service-line"></span>
-      <h3>Muzyka & Karaoke</h3>
-      <p>Prowadzenie imprezy, karaoke dla gości i zabawy integracyjne. Gwarantujemy świetną atmosferę i niezapomniane chwile.</p>
+      <span class="service-icon">🎤</span><span class="service-line"></span>
+      <h3 data-i18n="s1_title">Muzyka & Karaoke</h3>
+      <p data-i18n="s1_desc">Prowadzenie imprezy, karaoke dla gości i zabawy integracyjne. Gwarantujemy świetną atmosferę i niezapomniane chwile.</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">💍</span>
-      <span class="service-line"></span>
-      <h3>Wesela</h3>
-      <p>Kreatywnie, z klasą i dopasowane do Waszych gości. Tworzymy wyjątkową oprawę muzyczną na Wasz najważniejszy dzień.</p>
+      <span class="service-icon">💍</span><span class="service-line"></span>
+      <h3 data-i18n="s2_title">Wesela</h3>
+      <p data-i18n="s2_desc">Kreatywnie, z klasą i dopasowane do Waszych gości. Tworzymy wyjątkową oprawę muzyczną na Wasz najważniejszy dzień.</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">🎸</span>
-      <span class="service-line"></span>
-      <h3>Koncerty na żywo</h3>
-      <p>Wyjątkowe wykonania w aranżacji gitara akustyczna + wokal. Żywa muzyka, która buduje niepowtarzalny nastrój.</p>
+      <span class="service-icon">🎸</span><span class="service-line"></span>
+      <h3 data-i18n="s3_title">Koncerty na żywo</h3>
+      <p data-i18n="s3_desc">Wyjątkowe wykonania w aranżacji gitara akustyczna + wokal. Żywa muzyka, która buduje niepowtarzalny nastrój.</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">🎙️</span>
-      <span class="service-line"></span>
-      <h3>Profesjonalna konferansjerka</h3>
-      <p>Prowadzenie imprez w języku polskim i angielskim. Pewność, profesjonalizm i luz — w jednym pakiecie.</p>
+      <span class="service-icon">🎙️</span><span class="service-line"></span>
+      <h3 data-i18n="s4_title">Profesjonalna konferansjerka</h3>
+      <p data-i18n="s4_desc">Prowadzenie imprez w języku polskim i angielskim. Pewność, profesjonalizm i luz — w jednym pakiecie.</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">🔊</span>
-      <span class="service-line"></span>
-      <h3>Nagłośnienie & Oświetlenie</h3>
-      <p>Kompletny profesjonalny sprzęt zapewniający świetny klimat. Przywozimy wszystko — Ty się tylko bawisz.</p>
+      <span class="service-icon">🔊</span><span class="service-line"></span>
+      <h3 data-i18n="s5_title">Nagłośnienie & Oświetlenie</h3>
+      <p data-i18n="s5_desc">Kompletny profesjonalny sprzęt zapewniający świetny klimat. Przywozimy wszystko — Ty się tylko bawisz.</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">🎉</span>
-      <span class="service-line"></span>
-      <h3>Eventy korporacyjne</h3>
-      <p>Imprezy firmowe, integracje, bankiety i gale. Kompleksowa obsługa eventów dla firm każdej wielkości.</p>
+      <span class="service-icon">🎉</span><span class="service-line"></span>
+      <h3 data-i18n="s6_title">Eventy korporacyjne</h3>
+      <p data-i18n="s6_desc">Imprezy firmowe, integracje, bankiety i gale. Kompleksowa obsługa eventów dla firm każdej wielkości.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
+<!-- ═══════════════════════════
      PRICING
-═══════════════════════════════════════ -->
+═══════════════════════════ -->
 <section id="pricing">
   <div class="section-header">
-    <span class="section-label">Oferta & Cennik</span>
-    <h2>Jak <em>działamy</em></h2>
+    <span class="section-label" data-i18n="pricing_label">Oferta & Cennik</span>
+    <h2 data-i18n="pricing_h2">Jak <em>działamy</em></h2>
     <div class="divider"></div>
-    <p>Dwa modele współpracy — dopasowane do Twoich potrzeb.</p>
+    <p data-i18n="pricing_sub">Dwa modele współpracy — dopasowane do Twoich potrzeb.</p>
   </div>
-
   <div class="pricing-block">
     <div class="pricing-block-label">
-      <span class="section-label">Model 1</span>
-      <h3>Współpraca z lokalami</h3>
-      <p>Podpisujemy długoterminowe umowy z barami, restauracjami i klubami. Regularnie organizujemy wieczory karaoke — wszystko po naszej stronie.</p>
+      <span class="section-label" data-i18n="model1_label">Model 1</span>
+      <h3 data-i18n="model1_title">Współpraca z lokalami</h3>
+      <p data-i18n="model1_desc">Podpisujemy długoterminowe umowy z barami, restauracjami i klubami. Regularnie organizujemy wieczory karaoke — wszystko po naszej stronie.</p>
     </div>
     <div class="venue-features">
       <div class="venue-feature reveal">
         <div class="vf-icon">🔊</div>
-        <div>
-          <div class="vf-title">Montaż sprzętu</div>
-          <div class="vf-desc">Instalujemy nagłośnienie, oświetlenie i cały setup w lokalu na stałe lub na wieczór.</div>
-        </div>
+        <div><div class="vf-title" data-i18n="vf1_title">Montaż sprzętu</div><div class="vf-desc" data-i18n="vf1_desc">Instalujemy nagłośnienie, oświetlenie i cały setup w lokalu na stałe lub na wieczór.</div></div>
       </div>
       <div class="venue-feature reveal">
         <div class="vf-icon">💻</div>
-        <div>
-          <div class="vf-title">Własny sprzęt</div>
-          <div class="vf-desc">Przynosimy laptopy, mikrofony i oprogramowanie — lokal nie musi inwestować w nic.</div>
-        </div>
+        <div><div class="vf-title" data-i18n="vf2_title">Własny sprzęt</div><div class="vf-desc" data-i18n="vf2_desc">Przynosimy laptopy, mikrofony i oprogramowanie — lokal nie musi inwestować w nic.</div></div>
       </div>
       <div class="venue-feature reveal">
         <div class="vf-icon">🎤</div>
-        <div>
-          <div class="vf-title">Nasz prowadzący</div>
-          <div class="vf-desc">Nasz animator prowadzi wieczór — angażuje gości, buduje atmosferę i dba o zabawę.</div>
-        </div>
+        <div><div class="vf-title" data-i18n="vf3_title">Nasz prowadzący</div><div class="vf-desc" data-i18n="vf3_desc">Nasz animator prowadzi wieczór — angażuje gości, buduje atmosferę i dba o zabawę.</div></div>
       </div>
       <div class="venue-feature reveal">
         <div class="vf-icon">📋</div>
-        <div>
-          <div class="vf-title">Długoterminowa umowa</div>
-          <div class="vf-desc">Regularny harmonogram, stała współpraca i pewność jakości przy każdej edycji.</div>
-        </div>
+        <div><div class="vf-title" data-i18n="vf4_title">Długoterminowa umowa</div><div class="vf-desc" data-i18n="vf4_desc">Regularny harmonogram, stała współpraca i pewność jakości przy każdej edycji.</div></div>
       </div>
     </div>
   </div>
 
   <div class="pricing-block" style="margin-top:4.5rem;">
     <div class="pricing-block-label">
-      <span class="section-label">Model 2</span>
-      <h3>Eventy & Wesela</h3>
-      <p>Kompleksowa obsługa jednorazowych wydarzeń — wesela, imprezy prywatne, eventy korporacyjne.</p>
+      <span class="section-label" data-i18n="model2_label">Model 2</span>
+      <h3 data-i18n="model2_title">Eventy & Wesela</h3>
+      <p data-i18n="model2_desc">Kompleksowa obsługa jednorazowych wydarzeń — wesela, imprezy prywatne, eventy korporacyjne.</p>
     </div>
     <div class="pricelist">
       <div class="pricelist-row reveal">
-        <div class="pl-service">
-          <div class="pl-name">Prowadzenie imprezy + Karaoke</div>
-          <div class="pl-desc">Konferansjer, karaoke dla gości, zabawy integracyjne</div>
-        </div>
+        <div class="pl-service"><div class="pl-name" data-i18n="p1_name">Prowadzenie imprezy + Karaoke</div><div class="pl-desc" data-i18n="p1_desc">Konferansjer, karaoke dla gości, zabawy integracyjne</div></div>
         <div class="pl-price">0,00 <span>zł</span></div>
       </div>
       <div class="pricelist-row reveal">
-        <div class="pl-service">
-          <div class="pl-name">Wesele — pełna obsługa</div>
-          <div class="pl-desc">Konferansjer PL/EN, muzyka na żywo (gitara + wokal), karaoke</div>
-        </div>
+        <div class="pl-service"><div class="pl-name" data-i18n="p2_name">Wesele — pełna obsługa</div><div class="pl-desc" data-i18n="p2_desc">Konferansjer PL/EN, muzyka na żywo (gitara + wokal), karaoke</div></div>
         <div class="pl-price">0,00 <span>zł</span></div>
       </div>
       <div class="pricelist-row reveal">
-        <div class="pl-service">
-          <div class="pl-name">Koncert na żywo</div>
-          <div class="pl-desc">Gitara akustyczna + wokal, repertuar do uzgodnienia</div>
-        </div>
+        <div class="pl-service"><div class="pl-name" data-i18n="p3_name">Koncert na żywo</div><div class="pl-desc" data-i18n="p3_desc">Gitara akustyczna + wokal, repertuar do uzgodnienia</div></div>
         <div class="pl-price">0,00 <span>zł</span></div>
       </div>
       <div class="pricelist-row reveal">
-        <div class="pl-service">
-          <div class="pl-name">Nagłośnienie & Oświetlenie</div>
-          <div class="pl-desc">Profesjonalny sprzęt, dowóz i montaż na miejscu</div>
-        </div>
+        <div class="pl-service"><div class="pl-name" data-i18n="p4_name">Nagłośnienie & Oświetlenie</div><div class="pl-desc" data-i18n="p4_desc">Profesjonalny sprzęt, dowóz i montaż na miejscu</div></div>
         <div class="pl-price">0,00 <span>zł</span></div>
       </div>
       <div class="pricelist-row reveal">
-        <div class="pl-service">
-          <div class="pl-name">Event korporacyjny</div>
-          <div class="pl-desc">Gala, integracja lub bankiet — pełna obsługa muzyczna i konferansjerska</div>
-        </div>
+        <div class="pl-service"><div class="pl-name" data-i18n="p5_name">Event korporacyjny</div><div class="pl-desc" data-i18n="p5_desc">Gala, integracja lub bankiet — pełna obsługa muzyczna i konferansjerska</div></div>
         <div class="pl-price">0,00 <span>zł</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     GALLERY — 3 karuzele + lightbox
-
-     JAK DODAĆ ZDJĘCIA:
-     Wrzuć pliki do folderów:
-       assets/images/gallery/karaoke/
-       assets/images/gallery/live/
-       assets/images/gallery/setup/
-     Potem skopiuj dowolny blok <div class="c-slide">
-     i zmień src na nazwę swojego pliku.
-═══════════════════════════════════════ -->
+<!-- ═══════════════════════════
+     GALLERY
+═══════════════════════════ -->
 <section id="gallery">
   <div class="section-header">
-    <span class="section-label">Atmosfera</span>
-    <h2>Galeria</h2>
+    <span class="section-label" data-i18n="gallery_label">Atmosfera</span>
+    <h2 data-i18n="gallery_h2">Galeria</h2>
     <div class="divider"></div>
-    <p>Zajrzyj za kulisy naszych wydarzeń.</p>
+    <p data-i18n="gallery_sub">Zajrzyj za kulisy naszych wydarzeń.</p>
   </div>
-
-  <!-- ── KARAOKE ── -->
   <div class="carousel-block reveal">
     <div class="carousel-header">
       <h3 class="carousel-title">Karaoke</h3>
       <div class="carousel-arrows">
-        <button class="arrow-btn" aria-label="Poprzednie" onclick="slide('karaoke', -1)">&#8592;</button>
-        <button class="arrow-btn" aria-label="Następne"   onclick="slide('karaoke',  1)">&#8594;</button>
+        <button class="arrow-btn" onclick="slide('karaoke',-1)">&#8592;</button>
+        <button class="arrow-btn" onclick="slide('karaoke', 1)">&#8594;</button>
       </div>
     </div>
-    <div class="carousel-viewport">
-      <div class="carousel-track" id="track-karaoke">
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto1.jpg" alt="Karaoke 1"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto2.jpg" alt="Karaoke 2"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto3.jpg" alt="Karaoke 3"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto4.jpg" alt="Karaoke 4"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto5.jpg" alt="Karaoke 5"></div>
-        <!-- <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto6.jpg" alt="Karaoke 6"></div> -->
-      </div>
-    </div>
+    <div class="carousel-viewport"><div class="carousel-track" id="track-karaoke">
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto1.jpg" alt="Karaoke 1"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto2.jpg" alt="Karaoke 2"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto3.jpg" alt="Karaoke 3"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto4.jpg" alt="Karaoke 4"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto5.jpg" alt="Karaoke 5"></div>
+    </div></div>
   </div>
-
-  <!-- ── LIVE ── -->
   <div class="carousel-block reveal">
     <div class="carousel-header">
       <h3 class="carousel-title">Live</h3>
       <div class="carousel-arrows">
-        <button class="arrow-btn" aria-label="Poprzednie" onclick="slide('live', -1)">&#8592;</button>
-        <button class="arrow-btn" aria-label="Następne"   onclick="slide('live',  1)">&#8594;</button>
+        <button class="arrow-btn" onclick="slide('live',-1)">&#8592;</button>
+        <button class="arrow-btn" onclick="slide('live', 1)">&#8594;</button>
       </div>
     </div>
-    <div class="carousel-viewport">
-      <div class="carousel-track" id="track-live">
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto1.jpg" alt="Live 1"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto2.jpg" alt="Live 2"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto3.jpg" alt="Live 3"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto4.jpg" alt="Live 4"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto5.jpg" alt="Live 5"></div>
-        <!-- <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto6.jpg" alt="Live 6"></div> -->
-      </div>
-    </div>
+    <div class="carousel-viewport"><div class="carousel-track" id="track-live">
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto1.jpg" alt="Live 1"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto2.jpg" alt="Live 2"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto3.jpg" alt="Live 3"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto4.jpg" alt="Live 4"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto5.jpg" alt="Live 5"></div>
+    </div></div>
   </div>
-
-  <!-- ── SETUP ── -->
   <div class="carousel-block reveal">
     <div class="carousel-header">
       <h3 class="carousel-title">Setup</h3>
       <div class="carousel-arrows">
-        <button class="arrow-btn" aria-label="Poprzednie" onclick="slide('setup', -1)">&#8592;</button>
-        <button class="arrow-btn" aria-label="Następne"   onclick="slide('setup',  1)">&#8594;</button>
+        <button class="arrow-btn" onclick="slide('setup',-1)">&#8592;</button>
+        <button class="arrow-btn" onclick="slide('setup', 1)">&#8594;</button>
       </div>
     </div>
-    <div class="carousel-viewport">
-      <div class="carousel-track" id="track-setup">
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/setup/foto1.jpg" alt="Setup 1"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/setup/foto2.jpg" alt="Setup 2"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/setup/foto3.jpg" alt="Setup 3"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/setup/foto4.jpg" alt="Setup 4"></div>
-        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/setup/foto5.jpg" alt="Setup 5"></div>
-        <!-- <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/setup/foto6.jpg" alt="Setup 6"></div> -->
-      </div>
-    </div>
+    <div class="carousel-viewport"><div class="carousel-track" id="track-setup">
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/setup/foto1.jpg" alt="Setup 1"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/setup/foto2.jpg" alt="Setup 2"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/setup/foto3.jpg" alt="Setup 3"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/setup/foto4.jpg" alt="Setup 4"></div>
+      <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/setup/foto5.jpg" alt="Setup 5"></div>
+    </div></div>
   </div>
-
 </section>
 
-<!-- ── LIGHTBOX ── -->
 <div id="lightbox" onclick="closeLightbox()">
   <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
-  <button class="lb-prev"  onclick="lbNav(event, -1)">&#8592;</button>
-  <button class="lb-next"  onclick="lbNav(event,  1)">&#8594;</button>
+  <button class="lb-prev"  onclick="lbNav(event,-1)">&#8592;</button>
+  <button class="lb-next"  onclick="lbNav(event, 1)">&#8594;</button>
   <img id="lb-img" src="" alt="">
 </div>
 
-<!-- ═══════════════════════════════════════
-     Z KIM WSPÓŁPRACUJEMY
-═══════════════════════════════════════ -->
+<!-- ═══════════════════════════
+     LOCATIONS
+═══════════════════════════ -->
 <section id="locations">
   <div class="section-header">
-    <span class="section-label">Nasi partnerzy</span>
-    <h2>Z kim <em>współpracujemy</em></h2>
+    <span class="section-label" data-i18n="loc_label">Nasi partnerzy</span>
+    <h2 data-i18n="loc_h2">Z kim <em>współpracujemy</em></h2>
     <div class="divider"></div>
-    <p>Regularnie prowadzimy wieczory karaoke w tych lokalizacjach — wpadnij i poczuj atmosferę AudioFreaks na żywo.</p>
+    <p data-i18n="loc_sub">Regularnie prowadzimy wieczory karaoke w tych lokalizacjach — wpadnij i poczuj atmosferę AudioFreaks na żywo.</p>
   </div>
   <div class="locations-grid">
     <div class="location-card reveal">
-      <div class="location-number">01</div>
-      <h3>Bull Pub</h3>
-      <address>Mikołajska 2/1, 31-027 Kraków</address>
-      <span class="location-type">Restauracja / Pub</span>
+      <div class="location-content">
+        <div class="location-number">01</div>
+        <h3>Bull Pub</h3>
+        <address>Mikołajska 2/1, 31-027 Kraków</address>
+        <span class="location-type" data-i18n="loc_type_pub">Restauracja / Pub</span>
+      </div>
+      <div class="location-photo" style="background-image:url('assets/images/locations/bull-pub.jpg')"></div>
     </div>
     <div class="location-card reveal">
-      <div class="location-number">02</div>
-      <h3>Ronnie Drews Irish Pub</h3>
-      <address>Mikołajska 2/1, 31-027 Kraków</address>
-      <span class="location-type">Restauracja / Pub</span>
+      <div class="location-content">
+        <div class="location-number">02</div>
+        <h3>Ronnie Drews Irish Pub</h3>
+        <address>Mikołajska 2/1, 31-027 Kraków</address>
+        <span class="location-type" data-i18n="loc_type_pub">Restauracja / Pub</span>
+      </div>
+      <div class="location-photo" style="background-image:url('assets/images/locations/ronnie.jpg')"></div>
     </div>
     <div class="location-card reveal">
-      <div class="location-number">03</div>
-      <h3>Sinatras Bar</h3>
-      <address>ul. Szewska 22, 31-009 Kraków</address>
-      <span class="location-type">Live Music & Cocktail Bar</span>
+      <div class="location-content">
+        <div class="location-number">03</div>
+        <h3>Sinatras Bar</h3>
+        <address>ul. Szewska 22, 31-009 Kraków</address>
+        <span class="location-type" data-i18n="loc_type_bar">Live Music & Cocktail Bar</span>
+      </div>
+      <div class="location-photo" style="background-image:url('assets/images/locations/sinatras.jpg')"></div>
     </div>
     <div class="location-card reveal">
-      <div class="location-number">04</div>
-      <h3>Cybermachina</h3>
-      <address>Stolarska 13, 31-043 Kraków</address>
-      <span class="location-type">Game Pub</span>
+      <div class="location-content">
+        <div class="location-number">04</div>
+        <h3>Cybermachina</h3>
+        <address>Stolarska 13, 31-043 Kraków</address>
+        <span class="location-type" data-i18n="loc_type_game">Game Pub</span>
+      </div>
+      <div class="location-photo" style="background-image:url('assets/images/locations/cybermachina.jpg')"></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
+<!-- ═══════════════════════════
      CONTACT
-═══════════════════════════════════════ -->
+═══════════════════════════ -->
 <section id="contact">
   <div class="section-header">
-    <span class="section-label">Skontaktuj się</span>
-    <h2>Rezerwacja<br>i kontakt</h2>
+    <span class="section-label" data-i18n="contact_label">Skontaktuj się</span>
+    <h2 data-i18n="contact_h2">Rezerwacja<br>i kontakt</h2>
     <div class="divider"></div>
   </div>
   <div class="contact-layout">
-
     <div class="contact-info">
-      <h3>Jesteśmy zawsze w kontakcie</h3>
-      <p>Wypełnij formularz lub napisz do nas bezpośrednio — odpiszemy tak szybko, jak to możliwe.</p>
+      <h3 data-i18n="contact_sub">Jesteśmy zawsze w kontakcie</h3>
+      <p data-i18n="contact_desc">Wypełnij formularz lub napisz do nas bezpośrednio — odpiszemy tak szybko, jak to możliwe.</p>
+
+      <!-- UA notice — widoczne tylko przy UA -->
+      <div class="ua-contact-notice" id="uaContactNotice" style="display:none">
+        <span>🇺🇦</span>
+        <p data-i18n="ua_contact_notice">Спілкування — польською або англійською. Сайт українською лише для зручності перегляду.</p>
+      </div>
+
       <div class="contact-person">
         <div class="contact-person-avatar">🎤</div>
         <div>
           <div class="contact-person-name">Piotr Ogonowski</div>
-          <div class="contact-person-role">Założyciel · AudioFreaks</div>
+          <div class="contact-person-role" data-i18n="contact_role">Założyciel · AudioFreaks</div>
         </div>
       </div>
       <div class="social-links">
         <a href="https://instagram.com/audiofreaks_events" target="_blank" class="social-link">
           <span class="s-icon">📷</span>
-          <div>
-            <div class="s-handle">@audiofreaks_events</div>
-            <div class="s-sub">Instagram</div>
-          </div>
+          <div><div class="s-handle">@audiofreaks_events</div><div class="s-sub">Instagram</div></div>
         </a>
         <a href="mailto:audiofreaks2022@gmail.com" class="social-link">
           <span class="s-icon">✉️</span>
-          <div>
-            <div class="s-handle">audiofreaks2022@gmail.com</div>
-            <div class="s-sub">E-mail</div>
-          </div>
+          <div><div class="s-handle">audiofreaks2022@gmail.com</div><div class="s-sub">E-mail</div></div>
         </a>
         <a href="tel:+48511785481" class="social-link">
           <span class="s-icon">📞</span>
-          <div>
-            <div class="s-handle">+48 511 785 481</div>
-            <div class="s-sub">Telefon / WhatsApp</div>
-          </div>
+          <div><div class="s-handle">+48 511 785 481</div><div class="s-sub" data-i18n="contact_phone_sub">Telefon / WhatsApp</div></div>
         </a>
       </div>
     </div>
 
     <form onsubmit="handleSubmit(event)">
       <div class="form-row">
-        <input type="text" placeholder="Imię i nazwisko" required>
-        <input type="tel" placeholder="Numer telefonu" required>
+        <input type="text"  data-i18n-ph="form_name"  placeholder="Imię i nazwisko" required>
+        <input type="tel"   data-i18n-ph="form_phone" placeholder="Numer telefonu" required>
       </div>
-      <input type="email" placeholder="Adres e-mail" required>
+      <input type="email"   data-i18n-ph="form_email" placeholder="Adres e-mail" required>
       <select>
-        <option value="" disabled selected>Rodzaj wydarzenia</option>
-        <option>Wesele</option>
-        <option>Impreza prywatna / urodziny</option>
-        <option>Event korporacyjny</option>
-        <option>Koncert na żywo</option>
-        <option>Współpraca z lokalem</option>
-        <option>Inne</option>
+        <option value="" disabled selected data-i18n="form_event_default">Rodzaj wydarzenia</option>
+        <option data-i18n="form_ev1">Wesele</option>
+        <option data-i18n="form_ev2">Impreza prywatna / urodziny</option>
+        <option data-i18n="form_ev3">Event korporacyjny</option>
+        <option data-i18n="form_ev4">Koncert na żywo</option>
+        <option data-i18n="form_ev5">Współpraca z lokalem</option>
+        <option data-i18n="form_ev6">Inne</option>
       </select>
       <input type="date" required>
-      <textarea placeholder="Dodatkowe informacje (miejsce, liczba gości, życzenia...)"></textarea>
-      <button type="submit">Wyślij zapytanie →</button>
-      <p id="form-msg" style="color:var(--accent2);font-size:0.9rem;display:none;margin-top:0.5rem;">
+      <textarea data-i18n-ph="form_notes" placeholder="Dodatkowe informacje (miejsce, liczba gości, życzenia...)"></textarea>
+      <button type="submit" data-i18n="form_submit">Wyślij zapytanie →</button>
+      <p id="form-msg" style="color:var(--accent2);font-size:0.9rem;display:none;margin-top:0.5rem;" data-i18n="form_sent">
         ✓ Wiadomość wysłana! Odezwiemy się wkrótce.
       </p>
     </form>
-
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
+<!-- ═══════════════════════════
      FOOTER
-═══════════════════════════════════════ -->
+═══════════════════════════ -->
 <footer>
   <a href="#" class="logo">
     <img src="assets/images/logo.png" alt="AudioFreaks" style="height:36px;">
   </a>
-  <p>© 2025 AudioFreaks · Piotr Ogonowski. Wszelkie prawa zastrzeżone.</p>
-  <p>Zrobione z ❤️ dla miłośników muzyki</p>
+  <p data-i18n="footer_copy">© 2025 AudioFreaks · Piotr Ogonowski. Wszelkie prawa zastrzeżone.</p>
+  <p data-i18n="footer_made">Zrobione z ❤️ dla miłośników muzyki</p>
 </footer>
 
 <script>
-/* ═══════════════════════════════════════
+/* ═══════════════════════════════════════════════
+   TRANSLATIONS
+═══════════════════════════════════════════════ */
+const T = {
+  pl: {
+    nav_services:'Usługi', nav_pricing:'Cennik', nav_gallery:'Galeria',
+    nav_locations:'Współpraca', nav_contact:'Kontakt', nav_cta:'Zarezerwuj',
+    hero_tag:'Muzyka · Karaoke · Live Events',
+    hero_h1:'Twoje wydarzenie,', hero_h1_em:'nasza muzyka.',
+    hero_sub:'AudioFreaks to profesjonalna obsługa muzyczna i eventowa — karaoke, wesela, koncerty na żywo i prowadzenie imprez w Polsce i za granicą.',
+    hero_cta1:'Napisz do nas', hero_cta2:'Zobacz ofertę',
+    stat1:'Rok założenia', stat2:'Języki prowadzenia', stat3:'Zaangażowania', stat4:'Dobrej energii',
+    services_label:'Co oferujemy', services_h2:'Nasze <em>usługi</em>',
+    services_sub:'Kompleksowa obsługa muzyczna i eventowa — od wesel po długoterminowe wieczory karaoke w lokalach.',
+    s1_title:'Muzyka & Karaoke', s1_desc:'Prowadzenie imprezy, karaoke dla gości i zabawy integracyjne. Gwarantujemy świetną atmosferę i niezapomniane chwile.',
+    s2_title:'Wesela', s2_desc:'Kreatywnie, z klasą i dopasowane do Waszych gości. Tworzymy wyjątkową oprawę muzyczną na Wasz najważniejszy dzień.',
+    s3_title:'Koncerty na żywo', s3_desc:'Wyjątkowe wykonania w aranżacji gitara akustyczna + wokal. Żywa muzyka, która buduje niepowtarzalny nastrój.',
+    s4_title:'Profesjonalna konferansjerka', s4_desc:'Prowadzenie imprez w języku polskim i angielskim. Pewność, profesjonalizm i luz — w jednym pakiecie.',
+    s5_title:'Nagłośnienie & Oświetlenie', s5_desc:'Kompletny profesjonalny sprzęt zapewniający świetny klimat. Przywozimy wszystko — Ty się tylko bawisz.',
+    s6_title:'Eventy korporacyjne', s6_desc:'Imprezy firmowe, integracje, bankiety i gale. Kompleksowa obsługa eventów dla firm każdej wielkości.',
+    pricing_label:'Oferta & Cennik', pricing_h2:'Jak <em>działamy</em>', pricing_sub:'Dwa modele współpracy — dopasowane do Twoich potrzeb.',
+    model1_label:'Model 1', model1_title:'Współpraca z lokalami', model1_desc:'Podpisujemy długoterminowe umowy z barami, restauracjami i klubami. Regularnie organizujemy wieczory karaoke — wszystko po naszej stronie.',
+    vf1_title:'Montaż sprzętu', vf1_desc:'Instalujemy nagłośnienie, oświetlenie i cały setup w lokalu na stałe lub na wieczór.',
+    vf2_title:'Własny sprzęt', vf2_desc:'Przynosimy laptopy, mikrofony i oprogramowanie — lokal nie musi inwestować w nic.',
+    vf3_title:'Nasz prowadzący', vf3_desc:'Nasz animator prowadzi wieczór — angażuje gości, buduje atmosferę i dba o zabawę.',
+    vf4_title:'Długoterminowa umowa', vf4_desc:'Regularny harmonogram, stała współpraca i pewność jakości przy każdej edycji.',
+    model2_label:'Model 2', model2_title:'Eventy & Wesela', model2_desc:'Kompleksowa obsługa jednorazowych wydarzeń — wesela, imprezy prywatne, eventy korporacyjne.',
+    p1_name:'Prowadzenie imprezy + Karaoke', p1_desc:'Konferansjer, karaoke dla gości, zabawy integracyjne',
+    p2_name:'Wesele — pełna obsługa', p2_desc:'Konferansjer PL/EN, muzyka na żywo (gitara + wokal), karaoke',
+    p3_name:'Koncert na żywo', p3_desc:'Gitara akustyczna + wokal, repertuar do uzgodnienia',
+    p4_name:'Nagłośnienie & Oświetlenie', p4_desc:'Profesjonalny sprzęt, dowóz i montaż na miejscu',
+    p5_name:'Event korporacyjny', p5_desc:'Gala, integracja lub bankiet — pełna obsługa muzyczna i konferansjerska',
+    gallery_label:'Atmosfera', gallery_h2:'Galeria', gallery_sub:'Zajrzyj za kulisy naszych wydarzeń.',
+    loc_label:'Nasi partnerzy', loc_h2:'Z kim <em>współpracujemy</em>',
+    loc_sub:'Regularnie prowadzimy wieczory karaoke w tych lokalizacjach — wpadnij i poczuj atmosferę AudioFreaks na żywo.',
+    loc_type_pub:'Restauracja / Pub', loc_type_bar:'Live Music & Cocktail Bar', loc_type_game:'Game Pub',
+    contact_label:'Skontaktuj się', contact_h2:'Rezerwacja<br>i kontakt',
+    contact_sub:'Jesteśmy zawsze w kontakcie', contact_desc:'Wypełnij formularz lub napisz do nas bezpośrednio — odpiszemy tak szybko, jak to możliwe.',
+    contact_role:'Założyciel · AudioFreaks', contact_phone_sub:'Telefon / WhatsApp',
+    ua_contact_notice:'',
+    ua_notice_title:'', ua_notice_text:'',
+    form_name:'Imię i nazwisko', form_phone:'Numer telefonu', form_email:'Adres e-mail',
+    form_event_default:'Rodzaj wydarzenia', form_ev1:'Wesele', form_ev2:'Impreza prywatna / urodziny',
+    form_ev3:'Event korporacyjny', form_ev4:'Koncert na żywo', form_ev5:'Współpraca z lokalem', form_ev6:'Inne',
+    form_notes:'Dodatkowe informacje (miejsce, liczba gości, życzenia...)',
+    form_submit:'Wyślij zapytanie →', form_sent:'✓ Wiadomość wysłana! Odezwiemy się wkrótce.',
+    footer_copy:'© 2025 AudioFreaks · Piotr Ogonowski. Wszelkie prawa zastrzeżone.',
+    footer_made:'Zrobione z ❤️ dla miłośników muzyki',
+  },
+
+  en: {
+    nav_services:'Services', nav_pricing:'Pricing', nav_gallery:'Gallery',
+    nav_locations:'Partners', nav_contact:'Contact', nav_cta:'Book Now',
+    hero_tag:'Music · Karaoke · Live Events',
+    hero_h1:'Your event,', hero_h1_em:'our music.',
+    hero_sub:'AudioFreaks provides professional music and event services — karaoke, weddings, live concerts and event hosting in Poland and abroad.',
+    hero_cta1:'Contact Us', hero_cta2:'See Offer',
+    stat1:'Founded', stat2:'Languages', stat3:'Commitment', stat4:'Good Vibes',
+    services_label:'What We Offer', services_h2:'Our <em>Services</em>',
+    services_sub:'Full-service music and event management — from weddings to long-term karaoke nights at venues.',
+    s1_title:'Music & Karaoke', s1_desc:'Event hosting, karaoke for guests and team-building games. We guarantee a great atmosphere and unforgettable moments.',
+    s2_title:'Weddings', s2_desc:'Creative, classy and tailored to your guests. We create exceptional musical settings for your most important day.',
+    s3_title:'Live Concerts', s3_desc:'Unique performances with acoustic guitar and vocals. Live music that creates an unforgettable atmosphere.',
+    s4_title:'Professional MC', s4_desc:'Event hosting in Polish and English. Confidence, professionalism and fun — all in one package.',
+    s5_title:'Sound & Lighting', s5_desc:'Complete professional equipment ensuring a great vibe. We bring everything — you just enjoy yourself.',
+    s6_title:'Corporate Events', s6_desc:'Company parties, team-building, banquets and galas. Full-service event management for companies of any size.',
+    pricing_label:'Offer & Pricing', pricing_h2:'How We <em>Work</em>', pricing_sub:'Two cooperation models — tailored to your needs.',
+    model1_label:'Model 1', model1_title:'Venue Partnerships', model1_desc:'We sign long-term contracts with bars, restaurants and clubs. We regularly organize karaoke nights — everything on our side.',
+    vf1_title:'Equipment Setup', vf1_desc:'We install sound, lighting and full setup at the venue permanently or for the evening.',
+    vf2_title:'Our Own Gear', vf2_desc:'We bring laptops, microphones and software — the venue doesn\'t need to invest in anything.',
+    vf3_title:'Our Host', vf3_desc:'Our entertainer runs the evening — engages guests, builds atmosphere and keeps the fun going.',
+    vf4_title:'Long-term Contract', vf4_desc:'Regular schedule, ongoing cooperation and guaranteed quality at every edition.',
+    model2_label:'Model 2', model2_title:'Events & Weddings', model2_desc:'Full service for one-time events — weddings, private parties, corporate events.',
+    p1_name:'Event Hosting + Karaoke', p1_desc:'MC, karaoke for guests, team-building activities',
+    p2_name:'Wedding — Full Service', p2_desc:'MC PL/EN, live music (guitar + vocals), karaoke',
+    p3_name:'Live Concert', p3_desc:'Acoustic guitar + vocals, setlist to be agreed',
+    p4_name:'Sound & Lighting', p4_desc:'Professional equipment, delivery and setup on site',
+    p5_name:'Corporate Event', p5_desc:'Gala, team-building or banquet — full music and MC service',
+    gallery_label:'Atmosphere', gallery_h2:'Gallery', gallery_sub:'Take a look behind the scenes of our events.',
+    loc_label:'Our Partners', loc_h2:'Who We <em>Work With</em>',
+    loc_sub:'We regularly host karaoke nights at these venues — come and feel the AudioFreaks atmosphere live.',
+    loc_type_pub:'Restaurant / Pub', loc_type_bar:'Live Music & Cocktail Bar', loc_type_game:'Game Pub',
+    contact_label:'Get in Touch', contact_h2:'Booking<br>& Contact',
+    contact_sub:'We\'re always reachable', contact_desc:'Fill out the form or contact us directly — we\'ll reply as soon as possible.',
+    contact_role:'Founder · AudioFreaks', contact_phone_sub:'Phone / WhatsApp',
+    ua_contact_notice:'',
+    ua_notice_title:'', ua_notice_text:'',
+    form_name:'Full Name', form_phone:'Phone Number', form_email:'Email Address',
+    form_event_default:'Type of Event', form_ev1:'Wedding', form_ev2:'Private Party / Birthday',
+    form_ev3:'Corporate Event', form_ev4:'Live Concert', form_ev5:'Venue Partnership', form_ev6:'Other',
+    form_notes:'Additional info (venue, number of guests, requests...)',
+    form_submit:'Send Request →', form_sent:'✓ Message sent! We\'ll get back to you shortly.',
+    footer_copy:'© 2025 AudioFreaks · Piotr Ogonowski. All rights reserved.',
+    footer_made:'Made with ❤️ for music lovers',
+  },
+
+  ua: {
+    nav_services:'Послуги', nav_pricing:'Ціни', nav_gallery:'Галерея',
+    nav_locations:'Партнери', nav_contact:'Контакт', nav_cta:'Замовити',
+    hero_tag:'Музика · Караоке · Live Events',
+    hero_h1:'Ваше свято,', hero_h1_em:'наша музика.',
+    hero_sub:'AudioFreaks — це професійна музична та ивент-служба: караоке, весілля, живі концерти та ведення заходів у Польщі та за кордоном.',
+    hero_cta1:'Написати нам', hero_cta2:'Переглянути пропозицію',
+    stat1:'Рік заснування', stat2:'Мови ведення', stat3:'Залученість', stat4:'Гарного настрою',
+    services_label:'Що ми пропонуємо', services_h2:'Наші <em>послуги</em>',
+    services_sub:'Повний спектр музичних та івент-послуг — від весіль до регулярних вечорів караоке в закладах.',
+    s1_title:'Музика & Караоке', s1_desc:'Ведення свята, караоке для гостей та командні ігри. Гарантуємо чудову атмосферу та незабутні моменти.',
+    s2_title:'Весілля', s2_desc:'Креативно, зі смаком та адаптовано до ваших гостей. Створюємо неповторний музичний супровід для найважливішого дня.',
+    s3_title:'Живі концерти', s3_desc:'Унікальні виступи з акустичною гітарою та вокалом. Жива музика, яка створює незабутній настрій.',
+    s4_title:'Професійний ведучий', s4_desc:'Ведення заходів польською та англійською мовами. Впевненість, професіоналізм і легкість — в одному пакеті.',
+    s5_title:'Звук & Освітлення', s5_desc:'Повний комплект професійного обладнання. Ми привозимо все — ви просто насолоджуєтеся.',
+    s6_title:'Корпоративні заходи', s6_desc:'Корпоративи, тімбілдинги, банкети та гала-вечори. Повне музичне та організаційне обслуговування.',
+    pricing_label:'Пропозиція & Ціни', pricing_h2:'Як ми <em>працюємо</em>', pricing_sub:'Дві моделі співпраці — під ваші потреби.',
+    model1_label:'Модель 1', model1_title:'Співпраця із закладами', model1_desc:'Укладаємо довгострокові договори з барами, ресторанами та клубами. Регулярно організовуємо вечори караоке — все беремо на себе.',
+    vf1_title:'Монтаж обладнання', vf1_desc:'Встановлюємо звук, освітлення та повний сетап у закладі постійно або на один вечір.',
+    vf2_title:'Власне обладнання', vf2_desc:'Привозимо ноутбуки, мікрофони та програмне забезпечення — заклад не повинен нічого купувати.',
+    vf3_title:'Наш ведучий', vf3_desc:'Наш аніматор веде вечір — залучає гостей, створює атмосферу та стежить за розвагами.',
+    vf4_title:'Довгостроковий договір', vf4_desc:'Регулярний розклад, постійна співпраця та гарантована якість кожного вечора.',
+    model2_label:'Модель 2', model2_title:'Заходи & Весілля', model2_desc:'Повне обслуговування разових заходів — весілля, приватні вечірки, корпоративи.',
+    p1_name:'Ведення заходу + Караоке', p1_desc:'Ведучий, караоке для гостей, командні ігри',
+    p2_name:'Весілля — повний пакет', p2_desc:'Ведучий PL/EN, жива музика (гітара + вокал), караоке',
+    p3_name:'Живий концерт', p3_desc:'Акустична гітара + вокал, репертуар за домовленістю',
+    p4_name:'Звук & Освітлення', p4_desc:'Професійне обладнання, доставка та монтаж на місці',
+    p5_name:'Корпоративний захід', p5_desc:'Гала, тімбілдинг або банкет — повне музичне та організаційне обслуговування',
+    gallery_label:'Атмосфера', gallery_h2:'Галерея', gallery_sub:'Заглянь за лаштунки наших заходів.',
+    loc_label:'Наші партнери', loc_h2:'З ким ми <em>співпрацюємо</em>',
+    loc_sub:'Регулярно проводимо вечори караоке в цих закладах — завітайте і відчуйте атмосферу AudioFreaks наживо.',
+    loc_type_pub:'Ресторан / Паб', loc_type_bar:'Live Music & Cocktail Bar', loc_type_game:'Game Pub',
+    contact_label:'Зв\'яжіться з нами', contact_h2:'Бронювання<br>та контакт',
+    contact_sub:'Ми завжди на зв\'язку', contact_desc:'Заповніть форму або напишіть нам напряму — відповімо якнайшвидше.',
+    contact_role:'Засновник · AudioFreaks', contact_phone_sub:'Телефон / WhatsApp',
+    ua_contact_notice:'Спілкування — польською або англійською мовами. Сайт українською лише для зручності перегляду.',
+    ua_notice_title:'Увага', ua_notice_text:'Фірма працює виключно польською та англійською мовами. Цей сайт українською лише для зручності клієнта.',
+    form_name:'Ім\'я та прізвище', form_phone:'Номер телефону', form_email:'Електронна пошта',
+    form_event_default:'Тип заходу', form_ev1:'Весілля', form_ev2:'Приватна вечірка / день народження',
+    form_ev3:'Корпоративний захід', form_ev4:'Живий концерт', form_ev5:'Співпраця із закладом', form_ev6:'Інше',
+    form_notes:'Додаткова інформація (місце, кількість гостей, побажання...)',
+    form_submit:'Надіслати запит →', form_sent:'✓ Повідомлення надіслано! Незабаром відповімо.',
+    footer_copy:'© 2025 AudioFreaks · Piotr Ogonowski. Всі права захищені.',
+    footer_made:'Зроблено з ❤️ для любителів музики',
+  }
+};
+
+/* ═══════════════════════════════════════════════
+   I18N ENGINE
+═══════════════════════════════════════════════ */
+let currentLang = localStorage.getItem('af-lang') || 'pl';
+
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('af-lang', lang);
+  document.documentElement.lang = lang === 'ua' ? 'uk' : lang;
+  const t = T[lang];
+
+  // Text nodes
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Placeholders
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+
+  // Lang buttons active state (all sets)
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // UA-specific UI
+  const isUA = lang === 'ua';
+  document.getElementById('uaContactNotice').style.display = isUA ? 'flex' : 'none';
+}
+
+// Lang buttons click
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang;
+    applyLang(lang);
+    if (lang === 'ua') showUaToast();
+  });
+});
+
+applyLang(currentLang);
+
+/* ═══════════════════════════════════════════════
+   UA TOAST
+═══════════════════════════════════════════════ */
+let uaToastTimer = null;
+
+function showUaToast() {
+  const toast = document.getElementById('ua-toast');
+  toast.style.display = 'flex';
+  requestAnimationFrame(() => toast.classList.add('show'));
+  clearTimeout(uaToastTimer);
+  uaToastTimer = setTimeout(closeUaToast, 7000);
+}
+
+function closeUaToast() {
+  const toast = document.getElementById('ua-toast');
+  toast.classList.remove('show');
+  setTimeout(() => toast.style.display = 'none', 400);
+}
+
+/* ═══════════════════════════════════════════════
+   THEME — system preference + manual override
+═══════════════════════════════════════════════ */
+const html        = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon   = themeToggle.querySelector('.theme-icon');
+
+function getSystemTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function setTheme(t) {
+  html.setAttribute('data-theme', t);
+  themeIcon.textContent = t === 'dark' ? '☀️' : '🌙';
+  localStorage.setItem('af-theme', t);
+}
+
+// On load: use saved preference, fall back to system
+const savedTheme = localStorage.getItem('af-theme');
+setTheme(savedTheme || getSystemTheme());
+
+// Listen for system theme changes (if no manual override)
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+  if (!localStorage.getItem('af-theme')) setTheme(e.matches ? 'dark' : 'light');
+});
+
+themeToggle.addEventListener('click', () => {
+  setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+
+/* ═══════════════════════════════════════════════
+   MOBILE MENU
+═══════════════════════════════════════════════ */
+const hamburger  = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ═══════════════════════════════════════════════
    CAROUSEL
-═══════════════════════════════════════ */
-const state = { karaoke: 0, live: 0, setup: 0 };
-const SLIDE_W = 320;
-const SLIDE_GAP = 16;
+═══════════════════════════════════════════════ */
+const state   = { karaoke: 0, live: 0, setup: 0 };
+const SLIDE_W = 320, SLIDE_G = 16;
 
 function slide(id, dir) {
   const track   = document.getElementById('track-' + id);
   const slides  = track.querySelectorAll('.c-slide');
-  const visible = Math.max(1, Math.floor(track.parentElement.offsetWidth / (SLIDE_W + SLIDE_GAP)));
+  const visible = Math.max(1, Math.floor(track.parentElement.offsetWidth / (SLIDE_W + SLIDE_G)));
   const max     = Math.max(0, slides.length - visible);
-
-  state[id] = Math.min(Math.max(state[id] + dir, 0), max);
-  track.style.transform = `translateX(-${state[id] * (SLIDE_W + SLIDE_GAP)}px)`;
+  state[id]     = Math.min(Math.max(state[id] + dir, 0), max);
+  track.style.transform = `translateX(-${state[id] * (SLIDE_W + SLIDE_G)}px)`;
 }
 
-// Touch / swipe on mobile
 document.querySelectorAll('.carousel-viewport').forEach(vp => {
   let startX = 0;
   vp.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  vp.addEventListener('touchend', e => {
+  vp.addEventListener('touchend',   e => {
     const dx = e.changedTouches[0].clientX - startX;
     if (Math.abs(dx) < 50) return;
     const id = vp.querySelector('.carousel-track').id.replace('track-', '');
@@ -439,35 +678,28 @@ document.querySelectorAll('.carousel-viewport').forEach(vp => {
   }, { passive: true });
 });
 
-/* ═══════════════════════════════════════
+/* ═══════════════════════════════════════════════
    LIGHTBOX
-═══════════════════════════════════════ */
-let lbImages = [];
-let lbIndex  = 0;
+═══════════════════════════════════════════════ */
+let lbImages = [], lbIndex = 0;
 
-function openLightbox(slideEl) {
-  const track  = slideEl.closest('.carousel-track');
-  const imgs   = Array.from(track.querySelectorAll('.c-slide img'));
-  lbImages = imgs.map(img => img.src);
-  lbIndex  = imgs.indexOf(slideEl.querySelector('img'));
-
-  const lb = document.getElementById('lightbox');
+function openLightbox(el) {
+  const imgs = Array.from(el.closest('.carousel-track').querySelectorAll('.c-slide img'));
+  lbImages   = imgs.map(i => i.src);
+  lbIndex    = imgs.indexOf(el.querySelector('img'));
   document.getElementById('lb-img').src = lbImages[lbIndex];
-  lb.classList.add('active');
+  document.getElementById('lightbox').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
-
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('active');
   document.body.style.overflow = '';
 }
-
 function lbNav(e, dir) {
   e.stopPropagation();
   lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
   document.getElementById('lb-img').src = lbImages[lbIndex];
 }
-
 document.addEventListener('keydown', e => {
   if (!document.getElementById('lightbox').classList.contains('active')) return;
   if (e.key === 'ArrowRight') lbNav(e,  1);
@@ -475,9 +707,9 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape')     closeLightbox();
 });
 
-/* ═══════════════════════════════════════
+/* ═══════════════════════════════════════════════
    FORM
-═══════════════════════════════════════ */
+═══════════════════════════════════════════════ */
 function handleSubmit(e) {
   e.preventDefault();
   const msg = document.getElementById('form-msg');
@@ -486,19 +718,19 @@ function handleSubmit(e) {
   setTimeout(() => msg.style.display = 'none', 5000);
 }
 
-/* ═══════════════════════════════════════
+/* ═══════════════════════════════════════════════
    SCROLL REVEAL
-═══════════════════════════════════════ */
-const observer = new IntersectionObserver((entries) => {
+═══════════════════════════════════════════════ */
+const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 45);
-      observer.unobserve(entry.target);
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      revealObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.08 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
