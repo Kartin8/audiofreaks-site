@@ -264,7 +264,7 @@ nav {
 .mn-icon { font-size: 1.05rem; flex-shrink: 0; line-height: 1; }
 .mobile-nav a:hover { color: var(--warm); background: var(--surface2); padding-left: 1.9rem; }
 
-/* Mobile menu CTA button */
+/* Mobile menu CTA */
 .mobile-menu-cta { padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--border); }
 .mobile-cta-btn {
   display: block; width: 100%; text-align: center;
@@ -583,14 +583,14 @@ section { padding: 7rem 5vw; transition: background .35s; }
   border: 1.5px solid var(--border-w); background: var(--surface2);
   color: var(--warm); cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 2px 10px var(--shadow);
+  box-shadow: 0 2px 12px var(--shadow);
   transition: background .2s, border-color .2s, transform .2s, box-shadow .2s, color .2s;
 }
 .arrow-btn:hover {
   background: var(--accent); border-color: var(--accent); color: #fff;
-  transform: scale(1.1); box-shadow: 0 6px 20px rgba(255, 90, 31, 0.45);
+  transform: scale(1.1); box-shadow: 0 6px 22px rgba(255, 90, 31, 0.45);
 }
-.arrow-btn:active { transform: scale(0.95); }
+.arrow-btn:active { transform: scale(0.96); }
 .carousel-viewport { overflow: hidden; border-radius: var(--r-lg); }
 .carousel-track {
   display: flex; gap: 16px;
@@ -897,7 +897,7 @@ footer p { font-size: 0.82rem; color: var(--muted); }
 
   .footer-inner { flex-direction: column; align-items: center; text-align: center; }
   .social-bar-icons { gap: 0.7rem; }
-  .sb-card { flex: 1 1 140px; padding: 0.9rem 1rem; }
+  .sb-card { flex: 1 1 calc(50% - 0.35rem); padding: 0.9rem 1rem; }
   .sb-card-icon { width: 44px; height: 44px; }
   .card-modal-box { padding: 2rem 1.4rem; }
   .loc-modal-box { padding: 0; }
