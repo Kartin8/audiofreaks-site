@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudioFreaks - Muzyka, Karaoke & Events</title>
+  
+  <link rel="icon" href="/site_icon.ico" type="image/x-icon">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<nav>
+  <a href="#" class="logo"><img src="assets/images/logo.png" alt="AudioFreaks"></a>
+
+  <ul class="nav-links">
+    <li><a href="#services"  data-i18n="nav_services">Usługi</a></li>
+    <li><a href="#pricing"   data-i18n="nav_pricing">Cennik</a></li>
+    <li><a href="#gallery"   data-i18n="nav_gallery">Galeria</a></li>
+    <li><a href="#locations" data-i18n="nav_locations">Współpraca</a></li>
+    <li><a href="#contact"   data-i18n="nav_contact">Kontakt</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="lang-switcher desktop-only">
+      <button class="lang-btn active" data-lang="pl">PL</button>
+      <button class="lang-btn"        data-lang="en">EN</button>
+    </div>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Przełącz motyw">
+      <span class="theme-icon">☀️</span>
+    </button>
+
+    <a href="#contact" class="nav-cta desktop-only" data-i18n="nav_cta">Zarezerwuj</a>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-backdrop" id="mobileBackdrop" onclick="closeMobileMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <img src="assets/images/logo.png" alt="AudioFreaks" style="height:34px;">
+    <button class="mobile-close" onclick="closeMobileMenu()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav">
+    <a href="#services"  onclick="closeMobileMenu()" data-i18n="nav_services"><span class="mn-icon">🎤</span>Oferta</a>
+    <a href="#pricing"   onclick="closeMobileMenu()" data-i18n="nav_pricing"><span class="mn-icon">💰</span>Cennik</a>
+    <a href="#gallery"   onclick="closeMobileMenu()" data-i18n="nav_gallery"><span class="mn-icon">📸</span>Galeria</a>
+    <a href="#locations" onclick="closeMobileMenu()" data-i18n="nav_locations"><span class="mn-icon">📍</span>Gdzie gramy</a>
+    <a href="#contact"   onclick="closeMobileMenu()" data-i18n="nav_contact"><span class="mn-icon">✉️</span>Kontakt</a>
+  </nav>
+  <div class="mobile-menu-cta">
+    <a href="#contact" class="mobile-cta-btn" onclick="closeMobileMenu()" data-i18n="nav_cta">Zarezerwuj termin</a>
+  </div>
+  <div class="mobile-menu-social">
+    <a href="https://instagram.com/audiofreaks_events" target="_blank" rel="noopener" class="mm-social-link" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://facebook.com/audiofreaks" target="_blank" rel="noopener" class="mm-social-link" aria-label="Facebook">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://tiktok.com/@audiofreaks_events" target="_blank" rel="noopener" class="mm-social-link" aria-label="TikTok">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.22 8.22 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg>
+    </a>
+  </div>
+  <div class="mobile-menu-lang">
+    <span class="mm-lang-label">Język / Language</span>
+    <div class="mm-lang-btns">
+      <button class="mm-lang-btn active" data-lang="pl" onclick="applyLang('pl'); syncMobileMenuLang('pl');">🇵🇱 PL</button>
+      <button class="mm-lang-btn" data-lang="en" onclick="applyLang('en'); syncMobileMenuLang('en');">🇬🇧 EN</button>
+    </div>
+  </div>
+</div>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-rings"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag" data-i18n="hero_tag">Muzyka · Karaoke · Live Events</div>
+      <h1>
+        <span data-i18n="hero_h1">Twoja impreza,</span><br>
+        <em data-i18n="hero_h1_em">nasza energia.</em>
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">AudioFreaks to coś więcej niż nagłośnienie. To profesjonalne prowadzenie, autorskie sesje karaoke i oprawa muzyczna, która rozkręci każdy parkiet.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary" data-i18n="hero_cta1">Napisz do nas</a>
+        <a href="#services" class="btn-ghost"  data-i18n="hero_cta2">Zobacz ofertę</a>
+      </div>
+    </div>
+    <div class="hero-logo-wrap">
+      <div class="hero-logo-glow"></div>
+      <img src="assets/images/logo_big.png" alt="AudioFreaks" class="hero-logo-img" id="mainLogo">
+    </div>
+  </div>
+  <div class="hero-numbers">
+    <div><div class="stat-num">2022</div><div class="stat-label" data-i18n="stat1">Rok założenia</div></div>
+    <div><div class="stat-num">PL/EN</div><div class="stat-label" data-i18n="stat2">Języki prowadzenia</div></div>
+    <div><div class="stat-num">100%</div><div class="stat-label" data-i18n="stat3">Zaangażowania</div></div>
+    <div><div class="stat-num">∞</div><div class="stat-label" data-i18n="stat4">Dobrej energii</div></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-header">
+    <span class="section-label" data-i18n="services_label">Co oferujemy</span>
+    <h2 data-i18n="services_h2">Nasze <em>usługi</em></h2>
+    <div class="divider"></div>
+    <p data-i18n="services_sub">Kompleksowa obsługa muzyczna i eventowa - od wesel po długoterminowe wieczory karaoke w lokalach.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal" data-modal-key="s1"><span class="service-icon">🎤</span><span class="service-line"></span><h3 data-i18n="s1_title">Karaoke & Show</h3><p data-i18n="s1_desc">Prowadzenie imprezy, karaoke dla gości i zabawy integracyjne.</p><span class="card-tap-hint">↗</span></div>
+    <div class="service-card reveal" data-modal-key="s2"><span class="service-icon">💍</span><span class="service-line"></span><h3 data-i18n="s2_title">Wesela z klasą</h3><p data-i18n="s2_desc">Kreatywnie, z klasą i dopasowane do Waszych gości.</p><span class="card-tap-hint">↗</span></div>
+    <div class="service-card reveal" data-modal-key="s3"><span class="service-icon">🎸</span><span class="service-line"></span><h3 data-i18n="s3_title">Live Acoustic</h3><p data-i18n="s3_desc">Gitara akustyczna + wokal. Żywa muzyka, która buduje nastrój.</p><span class="card-tap-hint">↗</span></div>
+    <div class="service-card reveal" data-modal-key="s4"><span class="service-icon">🎙️</span><span class="service-line"></span><h3 data-i18n="s4_title">Konferansjerka</h3><p data-i18n="s4_desc">Prowadzenie imprez w języku polskim i angielskim.</p><span class="card-tap-hint">↗</span></div>
+    <div class="service-card reveal" data-modal-key="s5"><span class="service-icon">🔊</span><span class="service-line"></span><h3 data-i18n="s5_title">Sprzęt & Technika</h3><p data-i18n="s5_desc">Kompletny profesjonalny sprzęt. Przywozimy wszystko.</p><span class="card-tap-hint">↗</span></div>
+    <div class="service-card reveal" data-modal-key="s6"><span class="service-icon">🎉</span><span class="service-line"></span><h3 data-i18n="s6_title">Eventy Firmowe</h3><p data-i18n="s6_desc">Imprezy firmowe, integracje, bankiety i gale.</p><span class="card-tap-hint">↗</span></div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="section-header">
+    <span class="section-label" data-i18n="pricing_label">Oferta & Cennik</span>
+    <h2 data-i18n="pricing_h2">Jak <em>działamy</em></h2>
+    <div class="divider"></div>
+    <p data-i18n="pricing_sub">Dwa modele współpracy - dopasowane do Twoich potrzeb.</p>
+  </div>
+
+  <div class="pricing-block">
+    <div class="pricing-block-label">
+      <span class="section-label" data-i18n="model1_label">Model 1</span>
+      <h3 data-i18n="model1_title">Współpraca z lokalami</h3>
+      <p data-i18n="model1_desc">Podpisujemy długoterminowe umowy z barami i klubami. Regularnie organizujemy wieczory karaoke - wszystko po naszej stronie.</p>
+    </div>
+    <div class="venue-features">
+      <div class="venue-feature reveal" data-modal-key="vf1"><div class="vf-icon">🔊</div><div><div class="vf-title" data-i18n="vf1_title">Instalacja stała</div><div class="vf-desc" data-i18n="vf1_desc">Instalujemy nagłośnienie i cały setup na stałe lub na wieczór.</div></div><span class="card-tap-hint">↗</span></div>
+      <div class="venue-feature reveal" data-modal-key="vf2"><div class="vf-icon">💻</div><div><div class="vf-title" data-i18n="vf2_title">Pełny system</div><div class="vf-desc" data-i18n="vf2_desc">Przynosimy laptopy, mikrofony i oprogramowanie - lokal nie inwestuje w nic.</div></div><span class="card-tap-hint">↗</span></div>
+      <div class="venue-feature reveal" data-modal-key="vf3"><div class="vf-icon">🎤</div><div><div class="vf-title" data-i18n="vf3_title">Nasza ekipa</div><div class="vf-desc" data-i18n="vf3_desc">Nasz animator prowadzi wieczór - angażuje gości i dba o zabawę.</div></div><span class="card-tap-hint">↗</span></div>
+      <div class="venue-feature reveal" data-modal-key="vf4"><div class="vf-icon">📋</div><div><div class="vf-title" data-i18n="vf4_title">Partnerstwo</div><div class="vf-desc" data-i18n="vf4_desc">Regularny harmonogram, stała współpraca i pewność jakości.</div></div><span class="card-tap-hint">↗</span></div>
+    </div>
+  </div>
+
+  <div class="pricing-block" style="margin-top:4.5rem;">
+    <div class="pricing-block-label">
+      <span class="section-label" data-i18n="model2_label">Model 2</span>
+      <h3 data-i18n="model2_title">Eventy & Wesela</h3>
+      <p data-i18n="model2_desc">Kompleksowa obsługa jednorazowych wydarzeń.</p>
+    </div>
+    <div class="pricelist">
+      <div class="pricelist-row reveal" data-modal-price="p1" data-ev-index="1">
+        <div class="pl-service">
+          <div class="pl-name" data-i18n="p1_name">Karaoke</div>
+          <div class="pl-desc" data-i18n="p1_desc">My ogarniamy, ludzie śpiewają</div>
+        </div>
+        <div class="pl-price-wrap">
+          <div class="pl-price">0,00 <span>zł</span></div>
+          <button class="pl-want-btn" data-i18n="want_btn">Chcę →</button>
+        </div>
+      </div>
+      <div class="pricelist-row reveal" data-modal-price="p2" data-ev-index="2">
+        <div class="pl-service">
+          <div class="pl-name" data-i18n="p2_name">Wesele - Full Service</div>
+          <div class="pl-desc" data-i18n="p2_desc">DJ/Konferansjer PL/EN, muzyka na żywo, karaoke i oświetlenie</div>
+        </div>
+        <div class="pl-price-wrap">
+          <div class="pl-price">0,00 <span>zł</span></div>
+          <button class="pl-want-btn" data-i18n="want_btn">Chcę →</button>
+        </div>
+      </div>
+      <div class="pricelist-row reveal" data-modal-price="p3" data-ev-index="4">
+        <div class="pl-service">
+          <div class="pl-name" data-i18n="p3_name">Koncert Live</div>
+          <div class="pl-desc" data-i18n="p3_desc">Gitara + wokal, zestaw dopasowany do klimatu miejsca</div>
+        </div>
+        <div class="pl-price-wrap">
+          <div class="pl-price">0,00 <span>zł</span></div>
+          <button class="pl-want-btn" data-i18n="want_btn">Chcę →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="section-header">
+    <span class="section-label" data-i18n="gallery_label">Atmosfera</span>
+    <h2 data-i18n="gallery_h2">Galeria</h2>
+    <div class="divider"></div>
+    <p data-i18n="gallery_sub">Zajrzyj za kulisy naszych wydarzeń.</p>
+  </div>
+
+  <div class="carousel-block reveal">
+    <div class="carousel-header">
+      <h3 class="carousel-title">Karaoke</h3>
+      <span class="carousel-swipe-hint">← swipe →</span>
+    </div>
+    <div class="carousel-wrap">
+      <button class="car-arrow car-arrow-prev" aria-label="Poprzedni" onclick="slide('karaoke',-1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-viewport">
+      <div class="carousel-track" id="track-karaoke">
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto1.jpg" alt="Karaoke 1" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto2.jpg" alt="Karaoke 2" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto3.jpg" alt="Karaoke 3" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto4.jpg" alt="Karaoke 4" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/karaoke/foto5.jpg" alt="Karaoke 5" onerror="imgError(this)"></div>
+      </div>
+      <button class="car-arrow car-arrow-next" aria-label="Następny" onclick="slide('karaoke',1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+  </div>
+
+  <div class="carousel-block reveal">
+    <div class="carousel-header">
+      <h3 class="carousel-title">Live</h3>
+      <span class="carousel-swipe-hint">← swipe →</span>
+    </div>
+    <div class="carousel-wrap">
+      <button class="car-arrow car-arrow-prev" aria-label="Poprzedni" onclick="slide('live',-1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-viewport">
+      <div class="carousel-track" id="track-live">
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto1.jpg" alt="Live 1" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto2.jpg" alt="Live 2" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto3.jpg" alt="Live 3" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto4.jpg" alt="Live 4" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/live/foto5.jpg" alt="Live 5" onerror="imgError(this)"></div>
+      </div>
+      <button class="car-arrow car-arrow-next" aria-label="Następny" onclick="slide('live',1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+  </div>
+
+  <div class="carousel-block reveal">
+    <div class="carousel-header">
+      <h3 class="carousel-title">Wesela</h3>
+      <span class="carousel-swipe-hint">← swipe →</span>
+    </div>
+    <div class="carousel-wrap">
+      <button class="car-arrow car-arrow-prev" aria-label="Poprzedni" onclick="slide('wesela',-1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-viewport">
+      <div class="carousel-track" id="track-wesela">
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/wesela/foto1.jpg" alt="Wesela 1" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/wesela/foto2.jpg" alt="Wesela 2" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/wesela/foto3.jpg" alt="Wesela 3" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/wesela/foto4.jpg" alt="Wesela 4" onerror="imgError(this)"></div>
+        <div class="c-slide" onclick="openLightbox(this)"><img src="assets/images/gallery/wesela/foto5.jpg" alt="Wesela 5" onerror="imgError(this)"></div>
+      </div>
+      <button class="car-arrow car-arrow-next" aria-label="Następny" onclick="slide('wesela',1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+  </div>
+
+<div class="carousel-block reveal" style="margin-top:3.5rem;">
+    <div class="carousel-header">
+      <div class="video-carousel-label">
+        <h3 class="carousel-title" data-i18n="video_title">Reels & Highlights</h3>
+        <a href="https://instagram.com/audiofreaks_events" target="_blank" rel="noopener" class="video-insta-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+          @audiofreaks_events
+        </a>
+      </div>
+      <span class="carousel-swipe-hint">← swipe →</span>
+    </div>
+    <div class="carousel-wrap">
+      <button class="car-arrow car-arrow-prev" aria-label="Poprzedni" onclick="slideVideo(-1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-viewport" id="video-viewport">
+      <div class="carousel-track video-track" id="track-video">
+        
+        <div class="v-slide" style="background: transparent; border: none; overflow: hidden; display: block; flex: 0 0 326px; height: 500px;">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DULeTo8k2YI/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:540px; min-width:326px; padding:0; width:100%;">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/reel/DULeTo8k2YI/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+                <div style="padding: 19% 0;"></div>
+                <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                  <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886"></path></g></g></g></svg>
+                </div>
+                <div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div>
+              </a>
+            </div>
+          </blockquote>
+        </div>
+
+        <div class="v-slide" style="background: transparent; border: none; overflow: hidden; display: block; flex: 0 0 326px; height: 500px;">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DUlh0s6Cooa/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:540px; min-width:326px; padding:0; width:100%;">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/reel/DUlh0s6Cooa/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+                <div style="padding: 19% 0;"></div>
+                <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                  <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886"></path></g></g></g></svg>
+                </div>
+                <div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div>
+              </a>
+            </div>
+          </blockquote>
+        </div>
+
+        <div class="v-slide" style="background: transparent; border: none; overflow: hidden; display: block; flex: 0 0 326px; height: 500px;">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DUX8hXMAgoE/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:540px; min-width:326px; padding:0; width:100%;">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/reel/DUX8hXMAgoE/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+                <div style="padding: 19% 0;"></div>
+                <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                  <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886"></path></g></g></g></svg>
+                </div>
+                <div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div>
+              </a>
+            </div>
+          </blockquote>
+        </div>
+
+        <div class="v-slide" style="background: transparent; border: none; overflow: hidden; display: block; flex: 0 0 326px; height: 500px;">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DU_HBL5E9P5/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:540px; min-width:326px; padding:0; width:100%;">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/reel/DU_HBL5E9P5/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+                <div style="padding: 19% 0;"></div>
+                <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                  <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886"></path></g></g></g></svg>
+                </div>
+                <div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div>
+              </a>
+            </div>
+          </blockquote>
+        </div>
+
+        <div class="v-slide" style="background: transparent; border: none; overflow: hidden; display: block; flex: 0 0 326px; height: 500px;">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DTwHLLujy7Z/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:540px; min-width:326px; padding:0; width:100%;">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/reel/DTwHLLujy7Z/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+                <div style="padding: 19% 0;"></div>
+                <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                  <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886"></path></g></g></g></svg>
+                </div>
+                <div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div>
+              </a>
+            </div>
+          </blockquote>
+        </div>
+
+        <div class="v-slide" style="background: transparent; border: none; overflow: hidden; display: block; flex: 0 0 326px; height: 500px;">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DTwIhZTiKbI/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:540px; min-width:326px; padding:0; width:100%;">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/reel/DTwIhZTiKbI/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+                <div style="padding: 19% 0;"></div>
+                <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                  <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886"></path></g></g></g></svg>
+                </div>
+                <div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div>
+              </a>
+            </div>
+          </blockquote>
+        </div>
+
+        <div class="v-slide" style="background: transparent; border: none; overflow: hidden; display: block; flex: 0 0 326px; height: 500px;">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DUX86msFO3k/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:540px; min-width:326px; padding:0; width:100%;">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/reel/DUX86msFO3k/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+                <div style="padding: 19% 0;"></div>
+                <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                  <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886"></path></g></g></g></svg>
+                </div>
+                <div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div>
+              </a>
+            </div>
+          </blockquote>
+        </div>
+
+      </div>
+      <button class="car-arrow car-arrow-next" aria-label="Następny" onclick="slideVideo(1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    </div>
+  </div>
+</section>
+
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Lightbox" onclick="closeLightbox()">
+  <button class="lb-close" aria-label="Zamknij" onclick="closeLightbox()">✕</button>
+  <button class="lb-prev"  aria-label="Poprzednie zdjęcie" onclick="lbNav(event,-1)">←</button>
+  <button class="lb-next"  aria-label="Następne zdjęcie"   onclick="lbNav(event,1)">→</button>
+  <img id="lb-img" src="" alt="Galeria">
+</div>
+
+<div id="card-modal" class="card-modal-overlay" role="dialog" aria-modal="true" onclick="closeCardModal(event)">
+  <div class="card-modal-box">
+    <button class="card-modal-close" aria-label="Zamknij" onclick="closeCardModal()">✕</button>
+    <div class="card-modal-icon" id="modal-icon"></div>
+    <h3 class="card-modal-title" id="modal-title"></h3>
+    <div class="card-modal-line"></div>
+    <p class="card-modal-desc" id="modal-desc"></p>
+  </div>
+</div>
+
+<div id="price-modal" class="card-modal-overlay" role="dialog" aria-modal="true" onclick="closePriceModal(event)">
+  <div class="card-modal-box price-modal-box">
+    <button class="card-modal-close" aria-label="Zamknij" onclick="closePriceModal()">✕</button>
+    <div class="price-modal-top">
+      <div class="price-modal-icon" id="pm-icon"></div>
+      <div>
+        <h3 class="card-modal-title" id="pm-title"></h3>
+        <p class="pm-desc" id="pm-desc"></p>
+      </div>
+    </div>
+    <div class="card-modal-line"></div>
+    <div class="pm-price-row">
+      <span data-i18n="pm_price_label">Cena:</span>
+      <span class="pm-price" id="pm-price"></span>
+    </div>
+    <button class="pm-cta" onclick="goToContactWithEvent()" data-i18n="pm_cta">Chcę to! Rezerwuję →</button>
+  </div>
+</div>
+
+<div id="loc-modal" class="card-modal-overlay loc-modal-overlay" role="dialog" aria-modal="true" onclick="closeLocModal(event)">
+  <div class="card-modal-box loc-modal-box">
+    <button class="card-modal-close" aria-label="Zamknij" onclick="closeLocModal()">✕</button>
+    <div class="loc-modal-content">
+      <div class="loc-modal-info">
+        <div class="loc-modal-num" id="lm-num"></div>
+        <h3 class="card-modal-title" id="lm-name"></h3>
+        <div class="card-modal-line"></div>
+        <address id="lm-address"></address>
+        <span class="location-type" id="lm-type"></span>
+        <a class="loc-modal-gmaps" id="lm-link" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span data-i18n="open_maps">Otwórz w Google Maps</span>
+        </a>
+      </div>
+      <div class="loc-modal-map">
+        <iframe id="lm-iframe" src="" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa lokalizacji"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="locations">
+  <div class="section-header">
+    <span class="section-label" data-i18n="loc_label">Nasi partnerzy</span>
+    <h2 data-i18n="loc_h2">Z kim <em>współpracujemy</em></h2>
+    <div class="divider"></div>
+    <p data-i18n="loc_sub">Regularnie prowadzimy wieczory karaoke w tych lokalizacjach - wpadnij i poczuj atmosferę AudioFreaks na żywo.</p>
+  </div>
+  <div class="locations-grid">
+    <div class="location-card reveal"
+         data-loc-num="01" data-loc-name="Bull Pub"
+         data-loc-address="Mikołajska 2/1, 31-027 Kraków"
+         data-loc-type-key="loc_type_pub"
+         data-loc-maps="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.569!2d19.9377!3d50.0617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b621cead6cd%3A0x3e16c35ec9ed1e3a!2sMiko%C5%82ajska%202%2C%2031-027%20Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1700000001"
+         data-loc-gmaps="https://maps.google.com/?q=Mikołajska+2+Kraków">
+      <div class="location-content"><div class="location-number">01</div><h3>Bull Pub</h3><address>Mikołajska 2/1, 31-027 Kraków</address><span class="location-type" data-i18n="loc_type_pub">Restauracja / Pub</span></div>
+      <div class="location-photo" style="background-image:url('assets/images/locations/bull-pub.jpg')"></div>
+    </div>
+    <div class="location-card reveal"
+         data-loc-num="02" data-loc-name="Ronnie Drews Irish Pub"
+         data-loc-address="Mikołajska 2/1, 31-027 Kraków"
+         data-loc-type-key="loc_type_pub"
+         data-loc-maps="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.569!2d19.9377!3d50.0617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b621cead6cd%3A0x3e16c35ec9ed1e3a!2sMiko%C5%82ajska%202%2C%2031-027%20Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1700000002"
+         data-loc-gmaps="https://maps.google.com/?q=Ronnie+Drews+Kraków">
+      <div class="location-content"><div class="location-number">02</div><h3>Ronnie Drews Irish Pub</h3><address>Mikołajska 2/1, 31-027 Kraków</address><span class="location-type" data-i18n="loc_type_pub">Restauracja / Pub</span></div>
+      <div class="location-photo" style="background-image:url('assets/images/locations/ronnie.jpg')"></div>
+    </div>
+    <div class="location-card reveal"
+         data-loc-num="03" data-loc-name="Sinatras Bar"
+         data-loc-address="Szewska 22, 31-009 Kraków"
+         data-loc-type-key="loc_type_bar"
+         data-loc-maps="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.4!2d19.9358!3d50.0625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b6272a1d86b%3A0x6c2c9e1a!2sSzewska+22%2C+Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1700000003"
+         data-loc-gmaps="https://maps.google.com/?q=Szewska+22+Kraków">
+      <div class="location-content"><div class="location-number">03</div><h3>Sinatras Bar</h3><address>Szewska 22, 31-009 Kraków</address><span class="location-type" data-i18n="loc_type_bar">Live Music & Cocktail Bar</span></div>
+      <div class="location-photo" style="background-image:url('assets/images/locations/sinatras.jpg')"></div>
+    </div>
+    <div class="location-card reveal"
+         data-loc-num="04" data-loc-name="Cybermachina"
+         data-loc-address="Stolarska 13, 31-043 Kraków"
+         data-loc-type-key="loc_type_game"
+         data-loc-maps="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.5!2d19.9397!3d50.0609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b620a6fb565%3A0x3c9f1e2a!2sStolarska+13%2C+Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1700000004"
+         data-loc-gmaps="https://maps.google.com/?q=Stolarska+13+Kraków">
+      <div class="location-content"><div class="location-number">04</div><h3>Cybermachina</h3><address>Stolarska 13, 31-043 Kraków</address><span class="location-type" data-i18n="loc_type_game">Game Pub</span></div>
+      <div class="location-photo" style="background-image:url('assets/images/locations/cybermachina.jpg')"></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-header">
+    <span class="section-label" data-i18n="contact_label">Skontaktuj się</span>
+    <h2 data-i18n="contact_h2">Rezerwacja<br>i kontakt</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="contact-layout">
+    <div class="contact-info">
+      <h3 data-i18n="contact_sub">Jesteśmy zawsze w kontakcie</h3>
+      <p data-i18n="contact_desc">Wypełnij formularz lub napisz do nas bezpośrednio - odpiszemy tak szybko, jak to możliwe.</p>
+      <div class="contact-person">
+        <div class="contact-person-avatar">🎤</div>
+        <div>
+          <div class="contact-person-name">Piotr Ogonowski</div>
+          <div class="contact-person-role" data-i18n="contact_role">Założyciel · AudioFreaks</div>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="https://instagram.com/audiofreaks_events" target="_blank" rel="noopener" class="social-link">
+          <span class="s-icon">📷</span>
+          <div><div class="s-handle">@audiofreaks_events</div><div class="s-sub">Instagram</div></div>
+        </a>
+        <a href="/cdn-cgi/l/email-protection#a4c5d1c0cdcbc2d6c1c5cfd796949696e4c3c9c5cdc88ac7cbc9" class="social-link">
+          <span class="s-icon">✉️</span>
+          <div><div class="s-handle"><span class="__cf_email__" data-cfemail="01607465686e677364606a723331333341666c60686d2f626e6c">[email&#160;protected]</span></div><div class="s-sub">E-mail</div></div>
+        </a>
+        <a href="tel:+48511785481" class="social-link">
+          <span class="s-icon">📞</span>
+          <div><div class="s-handle">+48 511 785 481</div><div class="s-sub" data-i18n="contact_phone_sub">Telefon / WhatsApp</div></div>
+        </a>
+      </div>
+    </div>
+
+    <form
+      id="contact-form"
+      action="https://formspree.io/f/TWOJ_FORMSPREE_ID"
+      method="POST"
+      onsubmit="handleSubmit(event)"
+    >
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" id="form-subject" value="Nowe zapytanie - AudioFreaks">
+
+      <div class="form-row">
+        <input type="text"  name="name"  data-i18n-ph="form_name"  placeholder="Imię i nazwisko" required autocomplete="name">
+        <input type="tel"   name="phone" data-i18n-ph="form_phone" placeholder="Numer telefonu" required autocomplete="tel">
+      </div>
+      <input type="email" name="email" data-i18n-ph="form_email" placeholder="Adres e-mail" required autocomplete="email">
+      <select name="event_type" id="event-select" required>
+        <option value="" disabled selected data-i18n="form_event_default">Rodzaj wydarzenia</option>
+        <option value="Wesele"              data-i18n="form_ev1">Wesele</option>
+        <option value="Impreza prywatna"    data-i18n="form_ev2">Impreza prywatna / urodziny</option>
+        <option value="Event korporacyjny"  data-i18n="form_ev3">Event korporacyjny</option>
+        <option value="Koncert na żywo"     data-i18n="form_ev4">Koncert na żywo</option>
+        <option value="Współpraca z lokalem" data-i18n="form_ev5">Współpraca z lokalem</option>
+        <option value="Inne"                data-i18n="form_ev6">Inne</option>
+      </select>
+      <input type="date" name="event_date" required>
+      <textarea name="message" data-i18n-ph="form_notes" placeholder="Dodatkowe informacje..." rows="5"></textarea>
+      <button type="submit" id="submit-btn" data-i18n="form_submit">Wyślij zapytanie →</button>
+      <p id="form-msg" style="display:none;color:var(--accent2);font-size:0.9rem;margin-top:0.5rem;" data-i18n="form_sent">✓ Wiadomość wysłana! Odezwiemy się wkrótce.</p>
+      <p id="form-err" style="display:none;color:#e05050;font-size:0.9rem;margin-top:0.5rem;" data-i18n="form_err">⚠ Coś poszło nie tak. Napisz bezpośrednio na <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="98f9edfcf1f7feeafdf9f3ebaaa8aaaad8fff5f9f1f4b6fbf7f5">[email&#160;protected]</a></p>
+    </form>
+  </div>
+</section>
+
+<section id="social-bar">
+  <div class="social-bar-inner">
+    <div class="social-bar-text">
+      <span class="section-label" data-i18n="social_label">Śledź nas</span>
+      <h2 data-i18n="social_h2">Bądź z nami <em>online</em></h2>
+    </div>
+    <div class="social-bar-icons">
+      <a href="https://instagram.com/audiofreaks_events" target="_blank" rel="noopener" class="sb-icon-link" aria-label="Instagram">
+        <div class="sb-icon-wrap sb-insta">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <span>Instagram</span>
+      </a>
+      <a href="https://facebook.com/audiofreaks" target="_blank" rel="noopener" class="sb-icon-link" aria-label="Facebook">
+        <div class="sb-icon-wrap sb-fb">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+        <span>Facebook</span>
+      </a>
+      <a href="https://tiktok.com/@audiofreaks_events" target="_blank" rel="noopener" class="sb-icon-link" aria-label="TikTok">
+        <div class="sb-icon-wrap sb-tt">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.22 8.22 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg>
+        </div>
+        <span>TikTok</span>
+      </a>
+      <a href="https://wa.me/48511785481" target="_blank" rel="noopener" class="sb-icon-link" aria-label="WhatsApp">
+        <div class="sb-icon-wrap sb-wa">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p data-i18n="footer_copy">© 2026 AudioFreaks · Piotr Ogonowski. Wszystkie prawa zastrzeżone.</p>
+    <div class="footer-social-mini">
+      <a href="https://instagram.com/audiofreaks_events" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://facebook.com/audiofreaks" target="_blank" rel="noopener" aria-label="Facebook" class="footer-social-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://tiktok.com/@audiofreaks_events" target="_blank" rel="noopener" aria-label="TikTok" class="footer-social-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.22 8.22 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg>
+      </a>
+    </div>
+    <p data-i18n="footer_made">Made by KX/KartinX</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://www.instagram.com/embed.js"></script>
+
+<script>
+'use strict';
+
+// ─── CONSTANTS ────────────────────────────────────────────────────────────────
+// ВАЖНО: Мы изменили ширину видео с 220 на 326
+var SLIDE_W = 320, SLIDE_G = 16, VIDEO_W = 326, VIDEO_G = 16;
+
+// ─── STATE ────────────────────────────────────────────────────────────────────
+var currentLang    = localStorage.getItem('af-lang') || detectBrowserLang();
+var lbImages       = [];
+var lbIndex        = 0;
+var videoCarIdx    = 0;
+var pendingEvIndex = null;
+var carState       = { karaoke: 0, live: 0, wesela: 0 };
+
+// ─── TRANSLATIONS ──────────────────────────────────────────────────────────────
+var T = {
+  pl: {
+    nav_services:'Oferta', nav_pricing:'Cennik', nav_gallery:'Galeria',
+    nav_locations:'Gdzie gramy', nav_contact:'Kontakt', nav_cta:'Zarezerwuj termin',
+    hero_tag:'Muzyka · Karaoke · Emocje', hero_h1:'Twoja impreza,', hero_h1_em:'nasza energia.',
+    hero_sub:'AudioFreaks to coś więcej niż nagłośnienie. To profesjonalne prowadzenie, autorskie sesje karaoke i oprawa muzyczna, która rozkręci każdy parkiet.',
+    hero_cta1:'Dogadajmy szczegóły', hero_cta2:'Sprawdź ofertę',
+    stat1:'Na rynku od', stat2:'Prowadzimy po', stat3:'Czystej pasji', stat4:'Dobrej energii',
+    services_label:'Co robimy', services_h2:'Nasze <em>usługi</em>',
+    services_sub:'Zajmujemy się wszystkim, co związane z dźwiękiem i zabawą - od klimatycznych wesel po stałą współpracę z lokalami.',
+    s1_title:'Karaoke & Show', s1_desc:'To nie jest zwykłe śpiewanie. To show z animatorem, który angażuje gości i dba o to, by każdy poczuł się jak gwiazda wieczoru.',
+    s2_title:'Wesela z klasą', s2_desc:'Bez przaśności i nudy. Nowoczesne podejście do wesel, gdzie muzyka i styl idą w parze z Waszymi oczekiwaniami.',
+    s3_title:'Live Acoustic', s3_desc:'Kameralne koncerty: gitara akustyczna i wokal. Idealne rozwiązanie na powitanie gości, bankiety lub nastrojowe wieczory.',
+    s4_title:'Konferansjerka', s4_desc:'Płynne prowadzenie eventów w języku polskim i angielskim. Profesjonalizm, luz i pełna kontrola nad scenariuszem.',
+    s5_title:'Sprzęt & Technika', s5_desc:'Przywozimy własne nagłośnienie i oświetlenie. Ty dostarczasz miejsce, my zajmujemy się całą resztą.',
+    s6_title:'Eventy Firmowe', s6_desc:'Integracje, gale i jubileusze. Wiemy, jak przełamać lody i sprawić, by pracownicy bawili się świetnie.',
+    pricing_label:'Modele współpracy', pricing_h2:'Jak <em>działamy</em>', pricing_sub:'Dwa modele współpracy - dopasowane do Twoich potrzeb.',
+    model1_label:'Dla Biznesu', model1_title:'Współpraca z lokalami', model1_desc:'Budujemy rozpoznawalność Twojego miejsca przez regularne eventy. Stała współpraca, konkretna frekwencja tydzień w tydzień.',
+    vf1_title:'Instalacja stała', vf1_desc:'Optymalizujemy nagłośnienie i setup pod konkretny lokal i zostawiamy je u Ciebie na stałe. System zawsze gotowy do akcji.',
+    vf2_title:'Pełny system - zero problemów', vf2_desc:'Dostarczamy wszystko: od laptopów i mikrofonów po legalne, licencjonowane bazy utworów. Lokal nie musi się o nic martwić.',
+    vf3_title:'Nasza ekipa', vf3_desc:'Nasi ludzie wiedzą, jak rozmawiać z gośćmi i budować klimat miejsca. Jesteśmy częścią tej samej imprezy co Wasi goście.',
+    vf4_title:'Partnerstwo na jasnych zasadach', vf4_desc:'Stała współpraca, konkretny grafik i wspólna promocja w sieci. Gramy do jednej bramki.',
+    model2_label:'Prywatnie', model2_title:'Eventy & Wesela', model2_desc:'Twoja impreza, Twoje zasady. Wjeżdżamy, robimy swoje i pilnujemy każdego detalu.',
+    p1_name:'Karaoke', p1_desc:'My ogarniamy, ludzie śpiewają: instalujemy sprzęt, odpalamy listę i lecimy z tematem.',
+    p2_name:'Wesele - Full Service', p2_desc:'DJ/Konferansjer PL/EN, muzyka na żywo, karaoke i oświetlenie.',
+    p3_name:'Koncert Live', p3_desc:'Gitara + wokal, zestaw dopasowany do klimatu miejsca.',
+    want_btn:'Chcę →', pm_price_label:'Cena:', pm_cta:'Chcę to! Rezerwuję →',
+    video_title:'Reels & Highlights', video_placeholder:'Filmy zostaną wkrótce dodane.',
+    video_note:'💡 Zastąp placeholdery lokalnymi plikami MP4 lub YouTube iframe - instrukcja w komentarzu HTML.',
+    gallery_label:'Klimat', gallery_h2:'Galeria', gallery_sub:'Zamiast pisać, jak jest fajnie, po prostu pokażemy Ci zdjęcia.',
+    loc_label:'Nasi Partnerzy', loc_h2:'Tu nas <em>usłyszysz</em>',
+    loc_sub:'Działamy już w tych lokalach, gdzie regularnie organizujemy karaoke i live\'y. Wbijaj na miejsce i przekonaj się sam!',
+    loc_type_pub:'Pub / Restauracja', loc_type_bar:'Music & Cocktail Bar', loc_type_game:'Gaming Pub',
+    open_maps:'Otwórz w Google Maps',
+    contact_label:'Bądźmy w kontakcie', contact_h2:'Zarezerwuj<br>termin',
+    contact_sub:'Masz pytania? Pisz śmiało.', contact_desc:'Wypełnij formularz poniżej lub odezwij się bezpośrednio przez telefon/maila.',
+    contact_role:'Założyciel · AudioFreaks', contact_phone_sub:'Zadzwoń lub napisz',
+    ua_contact_notice:'Obsługa klienta odbywa się w języku polskim lub angielskim.',
+    ua_notice_title:'Ważna informacja', ua_notice_text:'Działamy wyłącznie w językach polskim i angielskim. Ta wersja powstała dla wygody наших klientów.',
+    form_name:'Twoje imię', form_phone:'Numer telefonu', form_email:'E-mail',
+    form_event_default:'O jaki event chodzi?', form_ev1:'Wesele', form_ev2:'Urodziny / Impreza prywatna',
+    form_ev3:'Event dla firmy', form_ev4:'Koncert live', form_ev5:'Współpraca (Lokal)', form_ev6:'Coś innego',
+    form_notes:'Kilka słów o planach (miejsce, data, ilość osób...)',
+    form_submit:'Wyślij zapytanie', form_sent:'✓ Odebraliśmy wiadomość! Odezwiemy się wkrótce.',
+    form_err:'⚠ Coś poszło nie tak. Napisz na audiofreaks2022@gmail.com',
+    social_label:'Śledź nas', social_h2:'Bądź z nami <em>online</em>',
+    footer_copy:'© 2026 AudioFreaks · Piotr Ogonowski. Wszystkie prawa zastrzeżone.', footer_made:'Made by KX/KartinX/Картін',
+  },
+  en: {
+    nav_services:'Offer', nav_pricing:'Pricing', nav_gallery:'Gallery',
+    nav_locations:'Partners', nav_contact:'Contact', nav_cta:'Book Now',
+    hero_tag:'Music · Karaoke · Vibes', hero_h1:'Your event,', hero_h1_em:'our sound.',
+    hero_sub:'AudioFreaks is more than just a sound system. We bring high-energy hosting, live acoustic sets, and premium karaoke that keeps the floor packed.',
+    hero_cta1:'Let\'s talk', hero_cta2:'Our services',
+    stat1:'Founded in', stat2:'Languages', stat3:'Pure Passion', stat4:'High Energy',
+    services_label:'Our Expertise', services_h2:'What we <em>offer</em>',
+    services_sub:'Complete audio and entertainment solutions for every occasion - from intimate weddings to B2B venue partnerships.',
+    s1_title:'Karaoke Show', s1_desc:'Not your average sing-along. A professional host who engages the crowd and makes everyone feel like a rockstar.',
+    s2_title:'Modern Weddings', s2_desc:'No clichés, no cringe. A fresh approach to wedding music where your style and vision take center stage.',
+    s3_title:'Live Acoustic', s3_desc:'Acoustic guitar and vocals for that perfect chill vibe. Ideal for welcome drinks, banquets, or lounge evenings.',
+    s4_title:'Professional Hosting', s4_desc:'Fluent MC services in Polish and English. We keep the schedule tight and the atmosphere light.',
+    s5_title:'Tech & Sound', s5_desc:'Pro-grade sound and lighting. You provide the space, we handle the logistics and the show.',
+    s6_title:'Corporate Events', s6_desc:'Team building, galas, and office parties. We know how to break the ice and get the team moving.',
+    pricing_label:'How We Work', pricing_h2:'Our <em>Models</em>', pricing_sub:'Flexible cooperation tailored to your needs.',
+    model1_label:'Business', model1_title:'Venue Partnerships', model1_desc:'Boost your venue\'s brand with regular events. We partner with bars and clubs to drive traffic and build a loyal crowd.',
+    vf1_title:'Permanent Setup', vf1_desc:'We install gear on-site permanently or bring it for specific nights. The system is always ready to go.',
+    vf2_title:'Turnkey Events', vf2_desc:'We provide laptops, mics, and legal song libraries. No technical worries for the venue owner.',
+    vf3_title:'Professional Hosts', vf3_desc:'Our entertainers are pros who know how to manage a crowd and build a venue\'s vibe.',
+    vf4_title:'Growth Focus', vf4_desc:'Long-term schedules, marketing support, and consistent quality every time.',
+    model2_label:'Private', model2_title:'Events & Weddings', model2_desc:'One-off celebrations executed with precision. Your night, your rules.',
+    p1_name:'Party + Karaoke', p1_desc:'Full hosting, animator, ice-breakers, and pro karaoke.',
+    p2_name:'Wedding - Full Service', p2_desc:'MC/DJ PL/EN, live music, karaoke, and lighting.',
+    p3_name:'Live Concert', p3_desc:'Acoustic guitar + vocals, setlist curated for your vibe.',
+    want_btn:'I want it →', pm_price_label:'Price:', pm_cta:'Book this now →',
+    video_title:'Reels & Highlights', video_placeholder:'Add video file',
+    video_note:'💡 Replace placeholders with local MP4 files or YouTube iframes (see HTML comment).',
+    gallery_label:'Atmosphere', gallery_h2:'Gallery', gallery_sub:'See the energy in action.',
+    loc_label:'Where we play', loc_h2:'Our <em>Partners</em>',
+    loc_sub:'Find us regularly at these Kraków spots. Drop by, listen in, and let\'s talk about your project.',
+    loc_type_pub:'Pub / Restaurant', loc_type_bar:'Music & Cocktail Bar', loc_type_game:'Gaming Pub',
+    open_maps:'Open in Google Maps',
+    contact_label:'Get in Touch', contact_h2:'Book your<br>date',
+    contact_sub:'Have questions? We\'re here.', contact_desc:'Fill out the form or reach out via phone or email. We usually respond within a few hours.',
+    contact_role:'Founder · AudioFreaks', contact_phone_sub:'Call or text',
+    ua_contact_notice:'Customer service is available in Polish or English.',
+    ua_notice_title:'Notice', ua_notice_text:'We operate exclusively in Polish and English. This version was created for the convenience of our Ukrainian-speaking clients.',
+    form_name:'Your name', form_phone:'Phone number', form_email:'E-mail address',
+    form_event_default:'What event are you planning?', form_ev1:'Wedding', form_ev2:'Birthday / Private Party',
+    form_ev3:'Corporate Event', form_ev4:'Live Concert', form_ev5:'Venue Partnership', form_ev6:'Other',
+    form_notes:'Details (location, date, guest count...)',
+    form_submit:'Send Request', form_sent:'✓ Message received! We\'ll get back to you shortly.',
+    form_err:'⚠ Something went wrong. Please email audiofreaks2022@gmail.com directly.',
+    social_label:'Follow us', social_h2:'Find us <em>online</em>',
+    footer_copy:'© 2026 AudioFreaks · Piotr Ogonowski. All rights reserved.', footer_made:'Made by KX/KartinX/Картін',
+  }
+};
+
+var PRICE_DATA = {
+  p1: { icon:'🎤', nameKey:'p1_name', descKey:'p1_desc', price:'0,00 zł' },
+  p2: { icon:'💍', nameKey:'p2_name', descKey:'p2_desc', price:'0,00 zł' },
+  p3: { icon:'🎸', nameKey:'p3_name', descKey:'p3_desc', price:'0,00 zł' },
+};
+var CARD_ICONS = { s1:'🎤', s2:'💍', s3:'🎸', s4:'🎙️', s5:'🔊', s6:'🎉', vf1:'🔊', vf2:'💻', vf3:'🎤', vf4:'📋' };
+var CARD_KEYS  = {
+  s1:{title:'s1_title',desc:'s1_desc'}, s2:{title:'s2_title',desc:'s2_desc'},
+  s3:{title:'s3_title',desc:'s3_desc'}, s4:{title:'s4_title',desc:'s4_desc'},
+  s5:{title:'s5_title',desc:'s5_desc'}, s6:{title:'s6_title',desc:'s6_desc'},
+  vf1:{title:'vf1_title',desc:'vf1_desc'}, vf2:{title:'vf2_title',desc:'vf2_desc'},
+  vf3:{title:'vf3_title',desc:'vf3_desc'}, vf4:{title:'vf4_title',desc:'vf4_desc'},
+};
+
+// ─── LANGUAGE ─────────────────────────────────────────────────────────────────
+function detectBrowserLang() {
+  var r = (navigator.language || 'pl').toLowerCase();
+  if (r.startsWith('en')) return 'en';
+  return 'pl';
+}
+
+
+// Desktop lang buttons
+document.querySelectorAll('.lang-btn').forEach(function(b) {
+  b.addEventListener('click', function() { applyLang(b.dataset.lang); });
+});
+
+// Sync mobile menu lang buttons highlight
+function syncMobileMenuLang(lang) {
+  document.querySelectorAll('.mm-lang-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+}
+
+// ─── THEME ────────────────────────────────────────────────────────────────────
+var htmlEl      = document.documentElement;
+var themeToggle = document.getElementById('themeToggle');
+var themeIcon   = themeToggle.querySelector('.theme-icon');
+
+function setTheme(t) {
+  htmlEl.setAttribute('data-theme', t);
+  themeIcon.textContent = t === 'dark' ? "☀️" : "🌙";
+  localStorage.setItem('af-theme', t);
+  
+  var mainLogo = document.getElementById('mainLogo');
+  if (mainLogo) {
+    mainLogo.src = t === 'dark' ? 'assets/images/logo_big.png' : 'assets/images/logo_big_dark.png';
+  }
+}
+
+(function initTheme() {
+  var saved = localStorage.getItem('af-theme');
+  setTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+})();
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+  if (!localStorage.getItem('af-theme')) setTheme(e.matches ? 'dark' : 'light');
+});
+
+themeToggle.addEventListener('click', function() {
+  setTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+
+// ─── MOBILE MENU ──────────────────────────────────────────────────────────────
+var hamburger  = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobileMenu');
+var mBackdrop  = document.getElementById('mobileBackdrop');
+
+hamburger.addEventListener('click', function() {
+  mobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+});
+
+function openMobileMenu() {
+  hamburger.classList.add('open');
+  mobileMenu.classList.add('open');
+  mBackdrop.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  mBackdrop.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+// ─── PHOTO CAROUSEL ───────────────────────────────────────────────────────────
+function slide(id, dir) {
+  var track   = document.getElementById('track-' + id);
+  if (!track) return;
+  var slides  = track.querySelectorAll('.c-slide');
+  var vpWidth = track.parentElement.offsetWidth;
+  var visible = Math.max(1, Math.floor(vpWidth / (SLIDE_W + SLIDE_G)));
+  var max     = Math.max(0, slides.length - visible);
+  carState[id] = Math.min(Math.max(carState[id] + dir, 0), max);
+  track.style.transform = 'translateX(-' + (carState[id] * (SLIDE_W + SLIDE_G)) + 'px)';
+}
+
+// Touch swipe on photo carousels
+document.querySelectorAll('.carousel-viewport').forEach(function(vp) {
+  if (vp.id === 'video-viewport') return;
+  var sx = 0;
+  vp.addEventListener('touchstart', function(e) { sx = e.touches[0].clientX; }, { passive: true });
+  vp.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) < 40) return;
+    var trackId = vp.querySelector('.carousel-track').id.replace('track-', '');
+    slide(trackId, dx < 0 ? 1 : -1);
+  }, { passive: true });
+});
+
+// Touch swipe on video carousel
+(function() {
+  var vvp = document.getElementById('video-viewport');
+  if (!vvp) return;
+  var sx = 0;
+  vvp.addEventListener('touchstart', function(e) { sx = e.touches[0].clientX; }, { passive: true });
+  vvp.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) < 40) return;
+    slideVideo(dx < 0 ? 1 : -1);
+  }, { passive: true });
+})();
+
+// ─── VIDEO CAROUSEL ───────────────────────────────────────────────────────────
+function slideVideo(dir) {
+  var track = document.getElementById('track-video');
+  var vp    = document.getElementById('video-viewport');
+  if (!track || !vp) return;
+  var slides  = track.querySelectorAll('.v-slide');
+  var visible = Math.max(1, Math.floor(vp.offsetWidth / (VIDEO_W + VIDEO_G)));
+  var max     = Math.max(0, slides.length - visible);
+  videoCarIdx = Math.min(Math.max(videoCarIdx + dir, 0), max);
+  track.style.transform = 'translateX(-' + (videoCarIdx * (VIDEO_W + VIDEO_G)) + 'px)';
+}
+
+// ─── LIGHTBOX ─────────────────────────────────────────────────────────────────
+function imgError(img) {
+  img.style.display = 'none';
+  var sl = img.closest('.c-slide');
+  sl.classList.add('no-photo');
+  sl.onclick = null;
+}
+
+function openLightbox(el) {
+  var track  = el.closest('.carousel-track');
+  if (!track) return;
+  var imgs   = Array.from(track.querySelectorAll('.c-slide:not(.no-photo) img'));
+  if (!imgs.length) return;
+  lbImages   = imgs.map(function(i) { return i.src; });
+  var clImg  = el.querySelector('img');
+  lbIndex    = clImg ? imgs.indexOf(clImg) : 0;
+  if (lbIndex < 0) lbIndex = 0;
+  document.getElementById('lb-img').src = lbImages[lbIndex];
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function lbNav(e, dir) {
+  e.stopPropagation();
+  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+  document.getElementById('lb-img').src = lbImages[lbIndex];
+}
+
+// ─── CARD MODAL ───────────────────────────────────────────────────────────────
+function openCardModal(key) {
+  var t = T[currentLang];
+  var k = CARD_KEYS[key];
+  if (!k) return;
+  document.getElementById('modal-icon').textContent  = CARD_ICONS[key] || '✨';
+  document.getElementById('modal-title').innerHTML   = t[k.title] || '';
+  document.getElementById('modal-desc').textContent  = t[k.desc]  || '';
+  document.getElementById('card-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCardModal(e) {
+  if (e && e.target !== document.getElementById('card-modal') && !e.target.closest('.card-modal-close')) return;
+  document.getElementById('card-modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ─── PRICE MODAL ──────────────────────────────────────────────────────────────
+function openPriceModal(key, evIndex) {
+  var t  = T[currentLang];
+  var pd = PRICE_DATA[key];
+  if (!pd) return;
+  pendingEvIndex = evIndex;
+  document.getElementById('pm-icon').textContent  = pd.icon;
+  document.getElementById('pm-title').innerHTML   = t[pd.nameKey] || '';
+  document.getElementById('pm-desc').textContent  = t[pd.descKey] || '';
+  document.getElementById('pm-price').textContent = pd.price;
+  document.getElementById('price-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePriceModal(e) {
+  if (e && e.target !== document.getElementById('price-modal') && !e.target.closest('.card-modal-close')) return;
+  document.getElementById('price-modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function goToContactWithEvent(evIndex) {
+  var idx = (evIndex !== undefined) ? evIndex : pendingEvIndex;
+  document.getElementById('price-modal').classList.remove('active');
+  document.body.style.overflow = '';
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  if (idx !== null && idx !== undefined) {
+    setTimeout(function() {
+      var sel = document.getElementById('event-select');
+      if (sel) {
+        var opts = sel.options;
+        for (var i = 0; i < opts.length; i++) {
+          if (String(i) === String(idx) || opts[i].value === String(idx)) {
+            sel.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }, 450);
+  }
+}
+
+// ─── LOCATION MODAL ───────────────────────────────────────────────────────────
+function openLocModal(card) {
+  var t = T[currentLang];
+  document.getElementById('lm-num').textContent     = card.dataset.locNum || '';
+  document.getElementById('lm-name').textContent    = card.dataset.locName || '';
+  document.getElementById('lm-address').textContent = card.dataset.locAddress || '';
+  document.getElementById('lm-type').innerHTML      = t[card.dataset.locTypeKey] || '';
+  document.getElementById('lm-link').href           = card.dataset.locGmaps || '#';
+  document.getElementById('lm-iframe').src          = card.dataset.locMaps || '';
+  document.getElementById('loc-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLocModal(e) {
+  if (e && e.target !== document.getElementById('loc-modal') && !e.target.closest('.card-modal-close')) return;
+  document.getElementById('loc-modal').classList.remove('active');
+  document.getElementById('lm-iframe').src = ''; // stop loading map
+  document.body.style.overflow = '';
+}
+
+// ─── BIND CARD & PRICE & LOC CLICKS ──────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('[data-modal-key]').forEach(function(c) {
+    c.style.cursor = 'pointer';
+    c.addEventListener('click', function() { openCardModal(c.getAttribute('data-modal-key')); });
+  });
+
+  document.querySelectorAll('.pricelist-row[data-modal-price]').forEach(function(row) {
+    row.style.cursor = 'pointer';
+    row.addEventListener('click', function(e) {
+      if (e.target.closest('.pl-want-btn')) return;
+      openPriceModal(row.getAttribute('data-modal-price'), parseInt(row.getAttribute('data-ev-index'), 10));
+    });
+    var wb = row.querySelector('.pl-want-btn');
+    if (wb) wb.addEventListener('click', function(e) {
+      e.stopPropagation();
+      goToContactWithEvent(parseInt(row.getAttribute('data-ev-index'), 10));
+    });
+  });
+
+  document.querySelectorAll('.location-card[data-loc-name]').forEach(function(c) {
+    c.style.cursor = 'pointer';
+    c.addEventListener('click', function() { openLocModal(c); });
+  });
+
+  applyLang(currentLang);
+});
+
+// ─── KEYBOARD NAVIGATION ─────────────────────────────────────────────────────
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    if (document.getElementById('lightbox').classList.contains('active')) { closeLightbox(); return; }
+    if (document.getElementById('card-modal').classList.contains('active')) {
+      document.getElementById('card-modal').classList.remove('active');
+      document.body.style.overflow = ''; return;
+    }
+    if (document.getElementById('price-modal').classList.contains('active')) {
+      document.getElementById('price-modal').classList.remove('active');
+      document.body.style.overflow = ''; return;
+    }
+    if (document.getElementById('loc-modal').classList.contains('active')) {
+      document.getElementById('lm-iframe').src = '';
+      document.getElementById('loc-modal').classList.remove('active');
+      document.body.style.overflow = ''; return;
+    }
+    if (mobileMenu.classList.contains('open')) { closeMobileMenu(); return; }
+  }
+  if (document.getElementById('lightbox').classList.contains('active')) {
+    if (e.key === 'ArrowRight') lbNav({ stopPropagation: function(){} }, 1);
+    if (e.key === 'ArrowLeft')  lbNav({ stopPropagation: function(){} }, -1);
+  }
+});
+
+// ─── FORM - FORMSPREE ASYNC SUBMIT ────────────────────────────────────────────
+function handleSubmit(e) {
+  e.preventDefault();
+  var form    = e.target;
+  var btn     = document.getElementById('submit-btn');
+  var msgOk   = document.getElementById('form-msg');
+  var msgErr  = document.getElementById('form-err');
+
+  msgOk.style.display  = 'none';
+  msgErr.style.display = 'none';
+
+  btn.disabled    = true;
+  btn.textContent = '⏳ Wysyłanie...';
+
+  var data = new FormData(form);
+
+  fetch(form.action, {
+    method:  'POST',
+    body:    data,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(function(res) {
+    btn.disabled    = false;
+    btn.textContent = T[currentLang].form_submit || 'Wyślij zapytanie';
+    if (res.ok) {
+      msgOk.style.display = 'block';
+      form.reset();
+      setTimeout(function() { msgOk.style.display = 'none'; }, 6000);
+    } else {
+      msgErr.style.display = 'block';
+      setTimeout(function() { msgErr.style.display = 'none'; }, 8000);
+    }
+  })
+  .catch(function() {
+    btn.disabled    = false;
+    btn.textContent = T[currentLang].form_submit || 'Wyślij zapytanie';
+    msgErr.style.display = 'block';
+    setTimeout(function() { msgErr.style.display = 'none'; }, 8000);
+  });
+}
+
+// ─── INTERSECTION OBSERVER - REVEAL ANIMATIONS ───────────────────────────────
+var revealObs = new I
